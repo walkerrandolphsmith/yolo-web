@@ -4,6 +4,7 @@
     <title>Yolo</title>
     <link href="styles/styles.css" rel="stylesheet" />
     <link href="scripts/_libs/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="scripts/_libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 
     <script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
     <script type="text/javascript">Parse.initialize("yG0OKddCMctN5vtCj5ocUbDxrRJjlPuzZLXMOXA9", "MgdbUbWiTaPbuZOp2N4rMsON7av9ITWvzSC0qiuV");</script>
@@ -12,10 +13,10 @@
 <body>
     <div class="appHost container">
         <div class="row">
-            <ul class="menu">
-                <li><a href="#/about">view1</a></li>
-                <li><a href="#/parents">view2</a></li>
-            </ul>
+            <nav>
+                <a href="#/about">view1</a>
+                <a href="#/parents">view2</a>
+            </nav>
         </div>
         <div class="container">
             <div ng-view class="row"></div>

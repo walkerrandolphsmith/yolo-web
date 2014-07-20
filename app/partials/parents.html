@@ -21,23 +21,42 @@
 
 <div class="container" ng-show="currentUser">
 
-    <h1>Welcome {{currentUser.get('username')}}</h1>
+
+    <div class="btn-group open">
+        <a class="btn btn-primary"><i class="fa fa-user fa-fw"></i> {{currentUser.get('username')}}</a>
+        <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            <span class="fa fa-caret-down"></span></a>
+        <ul class="dropdown-menu">
+            <li><a><i class="fa fa-pencil fa-fw"></i> Update</a></li>
+            <li><a><i class="fa fa-trash-o fa-fw"></i> Delete</a></li>
+            <li class="divider"></li>
+            <li><a ng-click="logOut()"><i class="i"></i> Sign Out</a></li>
+        </ul>
+    </div>
 
     <ul class="children-devices">
         <li data-ng-repeat="device in children().devices">{{device.name}}
             <span data-ng-repeat="device in children().devices">
-                <button class="btn btn-danger" ng-click="">Delete</button>
-                <button class="btn btn-default" ng-click="">Edit</button>
-                <button class="btn btn-primary" ng-click="remoteLock(device.channel)">{{device.channel}}</button>
+                <a class="btn btn-danger" ng-click="">
+                    <i class="fa fa-trash-o fa-lg"></i> Delete
+                </a>
+
+                 <a class="btn btn-primary" ng-click="">
+                     <i class="fa fa-edit fa-lg"></i> Edit
+                 </a>
+
+                  <a class="btn btn-primary" ng-click="remoteLock(device.channel)">
+                      <i class="fa fa-lock fa-lg"></i> Lock
+                  </a>
             </span>
         </li>
         <div class="or-spacer">
             <div class="mask"></div>
-            <span><i></i></span>
+
         </div>
     </ul>
 
-    <button id="logOutButton" class="btn btn-default" ng-click="logOut()">Log out</button>
+
 </div>
 
 

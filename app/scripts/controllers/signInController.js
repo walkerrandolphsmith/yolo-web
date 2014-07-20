@@ -5,9 +5,23 @@ define([], function() {
         $scope.currentUser = Parse.User.current();
         $scope.isNewMember = true;
 
+        $scope.status = {
+            isopen: false
+        };
+
+        $scope.toggled = function(open) {
+            console.log('Dropdown is now: ', open);
+        };
+
+        $scope.toggleDropdown = function($event) {
+            $event.preventDefault();
+            $event.stopPropagation();
+            $scope.status.isopen = !$scope.status.isopen;
+        };
+
         $scope.children = function(){
             return { devices : $scope.currentUser.get('children') } ;
-        }
+        };
 
         $scope.toggleForm = function() {
             this.isNewMember = !this.isNewMember;
@@ -41,6 +55,7 @@ define([], function() {
                 success: function(user) {
                     $scope.currentUser = user;
                     $scope.$apply();
+
                 },
                 error: function(user, error) {
                     alert("Unable to log in: " + error.code + " " + error.message);
@@ -68,10 +83,6 @@ define([], function() {
                 }
             });
         }
-
-
-
-
 
         $scope.logOut = function(form) {
             Parse.User.logOut();

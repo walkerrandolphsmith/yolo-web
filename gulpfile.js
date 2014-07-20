@@ -46,9 +46,7 @@ gulp.task('scripts', function() {
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-    gulp.watch('src/scripts/*.js', ['lint', 'scripts']);
-    gulp.watch('src/content/styles/*.less', ['gen']);
-    gulp.watch('src/*.jade', ['jade']);
+    gulp.watch('src/styles/*.less', ['less']);
 });
 
 gulp.task('connect', function(){
@@ -60,7 +58,6 @@ gulp.task('connect', function(){
 });
 
 gulp.task('run', ['connect', 'watch']);
-gulp.task('gen', ['less', 'styles', 'coffee']);
 
 // Default Task
 gulp.task('default', ['less', 'run']);

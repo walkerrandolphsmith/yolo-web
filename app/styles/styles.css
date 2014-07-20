@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic|Roboto+Condensed:300italic,400italic,700italic,300,700,400|Roboto+Slab:400,100,300,700|Droid+Sans+Mono&subset=latin,cyrillic-ext,greek-ext,greek,vietnamese,latin-ext,cyrillic);
 /*************************************************************
 
       Utilities
@@ -17,7 +18,9 @@
 body {
   background: #d8d8d8 url("//d36xtkk24g8jdx.cloudfront.net/bluebar/4ea466d/images/shared/noise-2.png");
   -webkit-font-smoothing: antialiased;
-  font-family: "Segoe UI Light", "Segoe UI", "Source Sans Pro", "Droid Sans", "Ubuntu", fantasy, sans-serif;
+}
+row {
+  padding: 0;
 }
 .appHost {
   background: #edeeef url("//d36xtkk24g8jdx.cloudfront.net/bluebar/4ea466d/images/shared/noise-2.png");
@@ -28,14 +31,12 @@ body {
   height: auto;
 }
 h1 {
+  font-family: "Segoe UI Light", "Segoe UI", "Source Sans Pro", "Droid Sans", "Ubuntu", fantasy, sans-serif;
+}
+nav {
   text-align: center;
-  text-transform: uppercase;
-  font-size: 72px;
-  -webkit-text-shadow: -1px -1px;
-  -moz-text-shadow: -1px -1px;
-  -o-text-shadow: -1px -1px;
-  -ms-text-shadow: -1px -1px;
-  text-shadow: -1px -1px;
+  list-style: none;
+  font-size: 36pt;
 }
 /*************************************************************
 
@@ -98,6 +99,9 @@ h1 {
 }
 .or-spacer span:hover i {
   color: #fff;
+}
+#logOutButton {
+  text-align: center;
 }
 /*
  *
