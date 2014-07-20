@@ -6,7 +6,8 @@ define([
     'services',
     'directives',
     'controllers',
-    'angularRoute'
+    'angularRoute',
+    'ui'
 ], function (angular, filters, services, directives, controllers) {
 
     // Declare app level module which depends on filters, and services
@@ -16,6 +17,7 @@ define([
         'YoloApp.filters',
         'YoloApp.services',
         'YoloApp.directives',
-        'YoloApp.controllers'
+        'YoloApp.controllers',
+        'ui.bootstrap'
     ]);
 });

@@ -3,7 +3,8 @@ require.config({
         'angular' : '_libs/angular/angular',
         angularRoute: '_libs/angular-route/angular-route',
         angularMocks: '_libs/angular-mocks/angular-mocks',
-        text: '_libs/requirejs-text/text'
+        text: '_libs/requirejs-text/text',
+        ui: '_libs/angular-bootstrap/ui-bootstrap'
     },
     shim: {
         'angular' : {'exports' : 'angular'},
@@ -11,7 +12,8 @@ require.config({
         'angularMocks': {
             deps:['angular'],
             'exports':'angular.mock'
-        }
+        },
+        'ui':['angular']
     },
     priority: [
         "angular"
