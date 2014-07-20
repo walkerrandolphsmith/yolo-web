@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="YoloApp" class="no-js">
+<head>
+    <title>Yolo</title>
+    <link href="styles/styles.css" rel="stylesheet" />
+    <link href="scripts/_libs/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+    <script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
+    <script type="text/javascript">Parse.initialize("yG0OKddCMctN5vtCj5ocUbDxrRJjlPuzZLXMOXA9", "MgdbUbWiTaPbuZOp2N4rMsON7av9ITWvzSC0qiuV");</script>
+</head>
+
+<body>
+
+    <ul class="menu">
+        <li><a href="#/about">view1</a></li>
+        <li><a href="#/parents">view2</a></li>
+    </ul>
+
+    <div ng-view></div>
+
+    <script src="scripts/_libs/requirejs/require.js" data-main="scripts/main"></script>
+</body>
+</html>
