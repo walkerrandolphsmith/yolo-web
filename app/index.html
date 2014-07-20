@@ -10,14 +10,17 @@
 </head>
 
 <body>
-
-    <ul class="menu">
-        <li><a href="#/about">view1</a></li>
-        <li><a href="#/parents">view2</a></li>
-    </ul>
-
-    <div ng-view></div>
-
+    <div class="appHost container">
+        <div class="row">
+            <ul class="menu">
+                <li><a href="#/about">view1</a></li>
+                <li><a href="#/parents">view2</a></li>
+            </ul>
+        </div>
+        <div class="container">
+            <div ng-view class="row"></div>
+        </div>
+    </div>
     <script src="scripts/_libs/requirejs/require.js" data-main="scripts/main"></script>
 </body>
 </html>

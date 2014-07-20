@@ -1,7 +1,6 @@
-<div class="container">
-
-    <form ng-hide="currentUser || isNewMember">
-        <h2>Sign up</h2>
+<div class="container" ng-hide="currentUser">
+    <form ng-hide="isNewMember">
+        <h1>Sign up</h1>
         Email: <input type="email" ng-model="user.email" /><br />
         Username: <input type="text" ng-model="user.username" /><br />
         Password: <input type="password" ng-model="user.password" /><br />
@@ -11,8 +10,8 @@
         <button class="btn btn-primary" ng-click="toggleForm()">Sign in</button>
     </form>
 
-    <form ng-hide="currentUser || !isNewMember">
-        <h2>Sign in</h2>
+    <form ng-hide="!isNewMember">
+        <h1>Sign in</h1>
         Username: <input type="text" ng-model="user.username" /><br />
         Password: <input type="password" ng-model="user.password" /><br />
         <button class="btn btn-primary" ng-click="logIn(user)">Sign in</button>
@@ -20,11 +19,25 @@
     </form>
 </div>
 
-<div ng-show="currentUser">
+<div class="container" ng-show="currentUser">
 
-    <h2>Welcome {{currentUser.get('username')}}</h2>
-    <p>You have been successfully logged in</p>
-    <button ng-click="logOut()">Log out</button>
+    <h1>Welcome {{currentUser.get('username')}}</h1>
+
+    <ul class="children-devices">
+        <li data-ng-repeat="device in children().devices">{{device.name}}
+            <span data-ng-repeat="device in children().devices">
+                <button class="btn btn-danger" ng-click="">Delete</button>
+                <button class="btn btn-default" ng-click="">Edit</button>
+                <button class="btn btn-primary" ng-click="remoteLock(device.channel)">{{device.channel}}</button>
+            </span>
+        </li>
+        <div class="or-spacer">
+            <div class="mask"></div>
+            <span><i></i></span>
+        </div>
+    </ul>
+
+    <button id="logOutButton" class="btn btn-default" ng-click="logOut()">Log out</button>
 </div>
 
 

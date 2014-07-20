@@ -1,5 +1,103 @@
+/*************************************************************
+
+      Utilities
+
+**************************************************************/
+/*
+    grayscale, invert, sepia, contrast, saturate (%)
+    brightness(real)
+    blur(px)
+    hue-rotate(deg)
+*/
+/*************************************************************
+
+      End of Utilities
+
+**************************************************************/
 body {
-  background: #fefefe;
+  background: #d8d8d8 url("//d36xtkk24g8jdx.cloudfront.net/bluebar/4ea466d/images/shared/noise-2.png");
+  -webkit-font-smoothing: antialiased;
+  font-family: "Segoe UI Light", "Segoe UI", "Source Sans Pro", "Droid Sans", "Ubuntu", fantasy, sans-serif;
+}
+.appHost {
+  background: #edeeef url("//d36xtkk24g8jdx.cloudfront.net/bluebar/4ea466d/images/shared/noise-2.png");
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-shadow: 0 0 8px black;
+  min-height: 100vh;
+  height: auto;
+}
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 72px;
+  -webkit-text-shadow: -1px -1px;
+  -moz-text-shadow: -1px -1px;
+  -o-text-shadow: -1px -1px;
+  -ms-text-shadow: -1px -1px;
+  text-shadow: -1px -1px;
+}
+/*************************************************************
+
+      Children List
+
+**************************************************************/
+.children-devices {
+  list-style: none;
+  padding: 0;
+}
+.children-devices li span {
+  float: right;
+}
+.or-spacer {
+  margin-top: 25px;
+  width: 100%;
+  position: relative;
+  transition: all 1.0s ease;
+}
+.or-spacer .mask {
+  overflow: hidden;
+  height: 20px;
+}
+.or-spacer .mask:after {
+  content: '';
+  display: block;
+  margin: -25px auto 0;
+  width: 100%;
+  height: 25px;
+  border-radius: 10.41666667px;
+  box-shadow: 0 0 8px black;
+}
+.or-spacer span {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  bottom: 100%;
+  margin-bottom: -15px;
+  left: 50%;
+  margin-left: -15px;
+  border-radius: 100%;
+  box-shadow: 0 2px 4px #999;
+  background: #ffffff;
+}
+.or-spacer span i {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  right: 4px;
+  border-radius: 100%;
+  border: 1px dashed #aaa;
+  text-align: center;
+  line-height: 40px;
+  font-style: normal;
+  color: #999;
+}
+.or-spacer span:hover {
+  background-color: #23538a;
+}
+.or-spacer span:hover i {
+  color: #fff;
 }
 /*
  *

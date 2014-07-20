@@ -1,16 +1,17 @@
 define([], function() {
     return ['$scope', '$http', function($scope, $http) {
         // You can access the scope of the controller from here
-        $scope.welcomeMessage = 'hey this is myctrl2.js!';
-
-
         $scope.scenario = 'Sign up';
         $scope.currentUser = Parse.User.current();
         $scope.isNewMember = true;
 
+        $scope.children = function(){
+            return { devices : $scope.currentUser.get('children') } ;
+        }
+
         $scope.toggleForm = function() {
             this.isNewMember = !this.isNewMember;
-        }
+        };
 
         $scope.signUp = function(form) {
             var user = new Parse.User();
@@ -46,6 +47,31 @@ define([], function() {
                 }
             });
         };
+
+        $scope.remoteLock = function(channel) {
+
+            var notification = "{"
+                + "\"action\": \"com.example.UPDATE_STATUS\","
+                +  "\"alert\": \"Your phone has been locked by Yolo. Contact Parent or Guardian.\""
+                + "}";
+
+            Parse.Push.send({
+               channels: [channel],
+                data: notification
+
+            },{
+                success: function() {
+                    console.log("Success");
+                },
+                error: function(error){
+
+                }
+            });
+        }
+
+
+
+
 
         $scope.logOut = function(form) {
             Parse.User.logOut();
