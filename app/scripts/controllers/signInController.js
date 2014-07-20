@@ -1,30 +1,15 @@
 define([], function() {
     return ['$scope', '$http', function($scope, $http) {
         // You can access the scope of the controller from here
-        $scope.scenario = 'Sign up';
         $scope.currentUser = Parse.User.current();
+
         $scope.isNewMember = true;
-
-        $scope.status = {
-            isopen: false
-        };
-
-        $scope.toggled = function(open) {
-            console.log('Dropdown is now: ', open);
-        };
-
-        $scope.toggleDropdown = function($event) {
-            $event.preventDefault();
-            $event.stopPropagation();
-            $scope.status.isopen = !$scope.status.isopen;
+        $scope.toggleForm = function() {
+            this.isNewMember = !this.isNewMember;
         };
 
         $scope.children = function(){
             return { devices : $scope.currentUser.get('children') } ;
-        };
-
-        $scope.toggleForm = function() {
-            this.isNewMember = !this.isNewMember;
         };
 
         $scope.signUp = function(form) {
@@ -82,7 +67,39 @@ define([], function() {
 
                 }
             });
+        };
+
+        $scope.updateAccount = function(){
+
         }
+
+        $scope.deleteAccount = function(){
+
+            $scope.currentUser.destroy({
+                success: function(obj){
+                    $scope.isNewMemeber = true;
+                    $scope.apply();
+                },
+                error: function(obj){
+
+                }
+            });
+
+        };
+
+        $scope.deleteChild = function(index){
+            var children = $scope.currentUser.get('children');
+            children.splice(index, 1);
+            $scope.currentUser.save();
+            console.log(children);
+        }
+
+        $scope.editChild = function(index){
+           var child = $scope.currentUser.get('children')[index];
+            child["name"] = "Amy Smith";
+           delete child.$$hashKey
+           $scope.currentUser.save();
+        };
 
         $scope.logOut = function(form) {
             Parse.User.logOut();

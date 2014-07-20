@@ -5,6 +5,7 @@
     <link href="styles/styles.css" rel="stylesheet" />
     <link href="scripts/_libs/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <link href="scripts/_libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic|Roboto+Condensed:300italic,400italic,700italic,300,700,400|Roboto+Slab:400,100,300,700|Droid+Sans+Mono&subset=latin,cyrillic-ext,greek-ext,greek,vietnamese,latin-ext,cyrillic" rel="stylesheet" type="text/css">
 
     <script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
     <script type="text/javascript">Parse.initialize("yG0OKddCMctN5vtCj5ocUbDxrRJjlPuzZLXMOXA9", "MgdbUbWiTaPbuZOp2N4rMsON7av9ITWvzSC0qiuV");</script>
@@ -13,9 +14,9 @@
 <body>
     <div class="appHost container">
         <div class="row">
-            <nav>
-                <a href="#/about">view1</a>
-                <a href="#/parents">view2</a>
+            <nav ng-controller="NavigationController">
+                <a href="#/about">About</a>
+                <a href="#/parents">Parents</a>
             </nav>
         </div>
         <div class="container">
