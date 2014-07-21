@@ -1,15 +1,11 @@
 var gulp = require('gulp');
-var gulpif = require('gulp-if');
 
 // Include Our Plugins
 var jshint = require('gulp-jshint');
-var jade = require('gulp-jade');
-var coffee = require('gulp-coffee');
 var less = require('gulp-less');
 var minifyCSS = require('gulp-minify-css');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
 connect = require('gulp-connect');
 lr = require('tiny-lr');
 
@@ -27,13 +23,6 @@ gulp.task('styles', function(){
         .pipe(concat('styles.css'))
         .pipe(minifyCSS(opts))
         .pipe(gulp.dest('app/styles'))
-});
-
-//Compile Coffee
-gulp.task('coffee', function() {
-    return gulp.src('src/scripts/*')
-        .pipe(gulpif(/[.]coffee$/,coffee()))
-        .pipe(gulp.dest('app/scripts'));
 });
 
 // Concatenate & Uglify JS
