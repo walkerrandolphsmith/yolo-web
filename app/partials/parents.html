@@ -10,13 +10,21 @@
         <button class="btn btn-primary" ng-click="toggleForm()">Sign in</button>
     </form>
 
-    <form ng-hide="!isNewMember">
-        <h1>Sign in</h1>
-        Username: <input type="text" ng-model="user.username" /><br />
-        Password: <input type="password" ng-model="user.password" /><br />
-        <button class="btn btn-primary" ng-click="logIn(user)">Sign in</button>
-        <button class="btn btn-success" ng-click="toggleForm()">Register</button>
-    </form>
+    <div class="signin" ng-hide="!isNewMember">
+        <form class="form-signin clearfix">
+            <p>
+                <input type="text" id="login" name="login" placeholder="Username" ng-model="user.username">
+                <input type="password" name="password" id="password" placeholder="Password" ng-model="user.password">
+            </p>
+            <button type="submit" name="submit" ng-click="logIn(user)">
+                <i class="fa fa-arrow-right"></i>
+                <span>Sign in</span>
+            </button>
+        </form>
+        <a ng-click="toggleForm()">Sign Up</a>
+    </div>
+
+
 </div>
 
 <div class="container" ng-show="currentUser">
