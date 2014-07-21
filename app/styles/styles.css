@@ -41,6 +41,18 @@ body {
 row {
   padding: 0;
 }
+.hidden {
+  visibility: hidden;
+}
+.visible {
+  visibility: visible;
+}
+.center {
+  text-align: center;
+}
+.center div {
+  display: inline-block;
+}
 .appHost {
   background: #dedede url("//d36xtkk24g8jdx.cloudfront.net/bluebar/4ea466d/images/shared/noise-2.png");
   padding-left: 0 !important;
@@ -50,17 +62,13 @@ row {
   height: auto;
   transition: all 1.0s ease;
 }
-.hidden {
-  visibility: hidden;
-}
-.visible {
-  visibility: visible;
-}
-.services {
-  background: #ffffff url("//d36xtkk24g8jdx.cloudfront.net/bluebar/4ea466d/images/shared/noise-2.png");
-}
 .appHost:hover {
   box-shadow: 0 0 15px black;
+}
+nav {
+  text-align: center;
+  list-style: none;
+  font-size: 36pt;
 }
 .hero h1 {
   font-family: "Oswald" sans-serif;
@@ -70,15 +78,6 @@ row {
 }
 .hero h1 abbr {
   border-bottom: none;
-}
-nav {
-  text-align: center;
-  list-style: none;
-  font-size: 36pt;
-}
-footer {
-  margin: auto 50%;
-  display: inline !important;
 }
 .headers {
   text-align: center;
@@ -95,6 +94,9 @@ footer {
   font-size: 26px;
   text-align: center;
 }
+.services {
+  background: #ffffff url("//d36xtkk24g8jdx.cloudfront.net/bluebar/4ea466d/images/shared/noise-2.png");
+}
 svg {
   heigth: 100%;
   width: 100%;
@@ -110,76 +112,6 @@ svg > path:first-child:hover {
   position: absolute;
   right: 0;
   padding-right: 25px;
-}
-/*************************************************************
-
-      Children List
-
-**************************************************************/
-.children-devices {
-  list-style: none;
-  padding: 0;
-}
-.children-devices li {
-  font-size: 36px;
-  padding-left: 30px;
-  padding-right: 30px;
-}
-.children-devices li span {
-  float: right;
-}
-.or-spacer {
-  margin-top: 25px;
-  width: 100%;
-  position: relative;
-  transition: all 1.0s ease;
-}
-.or-spacer .mask {
-  overflow: hidden;
-  height: 20px;
-}
-.or-spacer .mask:after {
-  content: '';
-  display: block;
-  margin: -25px auto 0;
-  width: 100%;
-  height: 25px;
-  border-radius: 10.41666667px;
-  box-shadow: 0 0 8px black;
-}
-.or-spacer span {
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  bottom: 100%;
-  margin-bottom: -15px;
-  left: 50%;
-  margin-left: -15px;
-  border-radius: 100%;
-  box-shadow: 0 2px 4px #999;
-  background: #ffffff;
-}
-.or-spacer span i {
-  position: absolute;
-  top: 4px;
-  bottom: 4px;
-  left: 4px;
-  right: 4px;
-  border-radius: 100%;
-  border: 1px dashed #aaa;
-  text-align: center;
-  line-height: 40px;
-  font-style: normal;
-  color: #999;
-}
-.or-spacer span:hover {
-  background-color: #23538a;
-}
-.or-spacer span:hover i {
-  color: #fff;
-}
-#logOutButton {
-  text-align: center;
 }
 /*************************************************************
 
@@ -873,6 +805,144 @@ svg > path:first-child:hover {
 }
 /*************************************************************
 
+      Available on Google Play Store
+
+**************************************************************/
+.a-btn {
+  background: #4575a4;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(#4575a4, 0), color-stop(#4575a4, 1));
+  background: -webkit-linear-gradient(top, #4575a4 0%, #4575a4 100%);
+  background: -moz-linear-gradient(top, #4575a4 0%, #4575a4 100%);
+  background: -o-linear-gradient(top, #4575a4 0%, #4575a4 100%);
+  background: linear-gradient(top, #4575a4 0%, #4575a4 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a9db80', endColorstr='@flat_blue', GradientType=0);
+  padding-left: 90px;
+  padding-right: 105px;
+  height: 90px;
+  display: inline-block;
+  position: relative;
+  color: #fff;
+  font-family: Oswald;
+  border: 1px solid #4575a4;
+  -webkit-box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  float: left;
+  clear: both;
+  margin: 10px 0px;
+  overflow: hidden;
+  -webkit-transition: box-shadow 0.3s ease-in-out;
+  -moz-transition: box-shadow 0.3s ease-in-out;
+  -o-transition: box-shadow 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out;
+}
+.a-btn img {
+  position: absolute;
+  left: 15px;
+  top: 18px;
+  height: 52px;
+  width: 52px;
+  border: none;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.a-btn .a-btn-slide-text {
+  position: absolute;
+  font-size: 36px;
+  top: 18px;
+  left: 18px;
+  color: #fff;
+  opacity: 0;
+  text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.4);
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+}
+.a-btn-text {
+  padding-top: 13px;
+  display: block;
+  font-size: 30px;
+  text-shadow: 0px -1px 1px #4575a4;
+}
+.a-btn-text small {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+.a-btn-icon-right {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  height: 100%;
+  width: 80px;
+  border-left: 1px solid #4575a4;
+  -webkit-box-shadow: 1px 0px 1px rgba(255, 255, 255, 0.4) inset;
+  -moz-box-shadow: 1px 0px 1px rgba(255, 255, 255, 0.4) inset;
+  box-shadow: 1px 0px 1px rgba(255, 255, 255, 0.4) inset;
+}
+.a-btn-icon-right span {
+  width: 38px;
+  height: 38px;
+  opacity: 0.7;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -20px 0px 0px -20px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  background: #27425c url(../styles/img/arrow_down.png) no-repeat center center;
+  -webkit-box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.3) inset, 0px 1px 2px rgba(255, 255, 255, 0.5);
+  -moz-box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.3) inset, 0px 1px 2px rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.3) inset, 0px 1px 2px rgba(255, 255, 255, 0.5);
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.a-btn:hover {
+  -webkit-box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 5px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 5px rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+.a-btn:hover img {
+  -webkit-transform: scale(10);
+  -moz-transform: scale(10);
+  -ms-transform: scale(10);
+  -o-transform: scale(10);
+  transform: scale(10);
+  opacity: 0;
+}
+.a-btn:hover .a-btn-slide-text,
+.a-btn:hover .a-btn-icon-right span {
+  opacity: 1;
+}
+.a-btn:active {
+  position: relative;
+  top: 1px;
+  background: #4575a4;
+  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4) inset;
+  -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4) inset;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4) inset;
+  border-color: #4575a4;
+}
+.a-btn:active .a-btn-icon-right span {
+  -webkit-transform: scale(1.4);
+  -moz-transform: scale(1.4);
+  -ms-transform: scale(1.4);
+  -o-transform: scale(1.4);
+  transform: scale(1.4);
+}
+/*************************************************************
+
       Sign In Form
 
 **************************************************************/
@@ -1099,6 +1169,76 @@ svg > path:first-child:hover {
 }
 .form-signin button {
   height: 141px !important;
+}
+/*************************************************************
+
+      Children List
+
+**************************************************************/
+.children-devices {
+  list-style: none;
+  padding: 0;
+}
+.children-devices li {
+  font-size: 36px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.children-devices li span {
+  float: right;
+}
+.or-spacer {
+  margin-top: 25px;
+  width: 100%;
+  position: relative;
+  transition: all 1.0s ease;
+}
+.or-spacer .mask {
+  overflow: hidden;
+  height: 20px;
+}
+.or-spacer .mask:after {
+  content: '';
+  display: block;
+  margin: -25px auto 0;
+  width: 100%;
+  height: 25px;
+  border-radius: 10.41666667px;
+  box-shadow: 0 0 8px black;
+}
+.or-spacer span {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  bottom: 100%;
+  margin-bottom: -15px;
+  left: 50%;
+  margin-left: -15px;
+  border-radius: 100%;
+  box-shadow: 0 2px 4px #999;
+  background: #ffffff;
+}
+.or-spacer span i {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  right: 4px;
+  border-radius: 100%;
+  border: 1px dashed #aaa;
+  text-align: center;
+  line-height: 40px;
+  font-style: normal;
+  color: #999;
+}
+.or-spacer span:hover {
+  background-color: #23538a;
+}
+.or-spacer span:hover i {
+  color: #fff;
+}
+#logOutButton {
+  text-align: center;
 }
 /*
  *
