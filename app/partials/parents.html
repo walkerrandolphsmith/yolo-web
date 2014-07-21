@@ -1,17 +1,23 @@
 <div class="container" ng-hide="currentUser">
-    <form ng-hide="isNewMember">
-        <h1>Sign up</h1>
-        Email: <input type="email" ng-model="user.email" /><br />
-        Username: <input type="text" ng-model="user.username" /><br />
-        Password: <input type="password" ng-model="user.password" /><br />
-        Phone: <input type="phone" ng-model="user.phone" /><br />
 
-        <button class="btn btn-success" ng-click="signUp(user)">Sign up</button>
-        <button class="btn btn-primary" ng-click="toggleForm()">Sign in</button>
-    </form>
+    <div class="signup" ng-hide="isNewMember">
+        <form class="form-user form-signup clearfix">
+            <p>
+                <input type="email" id="email" name="email" placeholder="Email" ng-model="user.email">
+                <input type="text" name="username" id="username" placeholder="Username" ng-model="user.username">
+                <input type="password" name="password" id="psswrd" placeholder="Password" ng-model="user.password">
+                <input type="phone" name="phone" id="phone" placeholder="Phone" ng-model="user.phone">
+            </p>
+            <button type="submit" name="submit" ng-click="signUp(user)">
+                <i class="fa fa-arrow-right"></i>
+                <span>Register</span>
+            </button>
+        </form>
+        <a ng-click="toggleForm()">Already a User</a>
+    </div>
 
     <div class="signin" ng-hide="!isNewMember">
-        <form class="form-signin clearfix">
+        <form class="form-user form-signin clearfix">
             <p>
                 <input type="text" id="login" name="login" placeholder="Username" ng-model="user.username">
                 <input type="password" name="password" id="password" placeholder="Password" ng-model="user.password">
@@ -23,8 +29,6 @@
         </form>
         <a ng-click="toggleForm()">Sign Up</a>
     </div>
-
-
 </div>
 
 <div class="container" ng-show="currentUser">
@@ -43,7 +47,8 @@
     </div>
     <div class="row">
         <ul class="children-devices">
-            <li data-ng-repeat="device in children().devices">{{device.name}}
+            <li data-ng-repeat="device in children().devices">
+                {{device.name}}
                 <span data-ng-repeat="device in children().devices">
                     <a class="btn btn-danger" ng-click="deleteChild($index)">
                         <i class="fa fa-trash-o fa-lg"></i> Delete
@@ -66,6 +71,26 @@
     </div>
 
 </div>
+
+
+<!--
+<div ng-controller="ModalEditChild">
+    <script type="text/ng-template" id="modalEditChild.html">
+        <div class="modal-header">
+            <h3 class="modal-title">I'm a modal!</h3>
+        </div>
+        <div class="modal-body">
+
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+</div>
+
+<button class="btn btn-default" ng-click="open()">Open me!</button>
+-->
 
 
 <!--<p>

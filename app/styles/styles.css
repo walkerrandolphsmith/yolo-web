@@ -42,7 +42,7 @@ row {
   padding: 0;
 }
 .appHost {
-  background: #ffffff url("//d36xtkk24g8jdx.cloudfront.net/bluebar/4ea466d/images/shared/noise-2.png");
+  background: #dedede url("//d36xtkk24g8jdx.cloudfront.net/bluebar/4ea466d/images/shared/noise-2.png");
   padding-left: 0 !important;
   padding-right: 0 !important;
   box-shadow: 0 0 8px black;
@@ -50,8 +50,14 @@ row {
   height: auto;
   transition: all 1.0s ease;
 }
+.hidden {
+  visibility: hidden;
+}
+.visible {
+  visibility: visible;
+}
 .services {
-  background: #edeeef url("//d36xtkk24g8jdx.cloudfront.net/bluebar/4ea466d/images/shared/noise-2.png");
+  background: #ffffff url("//d36xtkk24g8jdx.cloudfront.net/bluebar/4ea466d/images/shared/noise-2.png");
 }
 .appHost:hover {
   box-shadow: 0 0 15px black;
@@ -69,6 +75,10 @@ nav {
   text-align: center;
   list-style: none;
   font-size: 36pt;
+}
+footer {
+  margin: auto 50%;
+  display: inline !important;
 }
 .headers {
   text-align: center;
@@ -109,6 +119,11 @@ svg > path:first-child:hover {
 .children-devices {
   list-style: none;
   padding: 0;
+}
+.children-devices li {
+  font-size: 36px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 .children-devices li span {
   float: right;
@@ -861,7 +876,8 @@ svg > path:first-child:hover {
       Sign In Form
 
 **************************************************************/
-.signin a {
+.signin a,
+.signup a {
   margin: auto 48%;
   margin-right: 0;
 }
@@ -880,7 +896,7 @@ svg > path:first-child:hover {
   display: table;
   clear: both;
 }
-.form-signin {
+.form-user {
   /* Size and position */
   width: 300px;
   margin: 60px auto 30px;
@@ -889,15 +905,17 @@ svg > path:first-child:hover {
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1), 0 3px 2px rgba(0, 0, 0, 0.1);
 }
-.form-signin p {
+.form-user p {
   width: 70%;
   float: left;
   border-radius: 5px 0 0 5px;
   border: 1px solid #fff;
   border-right: none;
 }
-.form-signin input[type=text],
-.form-signin input[type=password] {
+.form-user input[type=text],
+.form-user input[type=password],
+.form-user input[type=email],
+.form-user input[type=phone] {
   /* Size and position */
   width: 100%;
   height: 70px;
@@ -916,46 +934,52 @@ svg > path:first-child:hover {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   font-size: 20px;
 }
-.form-signin input[type=text] {
+.form-user input[type=text],
+.form-user input[type=password],
+.form-user input[type=email] {
   border-bottom: 1px solid #fff;
   /* Fallback */
   border-bottom: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 5px 0 0 0;
 }
-.form-signin input[type=password] {
+.form-user input[type=text],
+.form-user input[type=password],
+.form-user input[type=phone] {
   border-top: 1px solid #CCC;
   /* Fallback */
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 0 0 0 5px;
-  height: 50px;
-  padding-top: 10px;
 }
-.form-signin input[type=text]:hover,
-.form-signin input[type=password]:hover,
-.form-signin input[type=text]:focus,
-.form-signin input[type=password]:focus {
+.form-user input[type=text]:hover,
+.form-user input[type=password]:hover,
+.form-user input[type=email]:hover,
+.form-user input[type=phone]:hover,
+.form-user input[type=text]:focus,
+.form-user input[type=password]:focus,
+.form-user input[type=email]:focus,
+.form-user input[type=phone]:focus {
   background: #f7def7;
   /* Fallback */
   background: rgba(255, 255, 255, 0.4);
   outline: none;
 }
 /* Placeholder style (from http://stackoverflow.com/questions/2610497/change-an-inputs-html5-placeholder-color-with-css) */
-.form-signin input::-webkit-input-placeholder {
+.form-user input::-webkit-input-placeholder {
   color: #fff;
   text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.4);
   font-family: 'Handlee', cursive;
 }
-.form-signin input:-moz-placeholder {
+.form-user input:-moz-placeholder {
   color: #fff;
   text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.4);
   font-family: 'Handlee', cursive;
 }
-.form-signin input:-ms-input-placeholder {
+.form-user input:-ms-input-placeholder {
   color: #fff;
   text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.4);
   font-family: 'Handlee', cursive;
 }
-.form-signin button {
+.form-user button {
   /* Size and position */
   width: 30%;
   height: 140px;
@@ -978,7 +1002,7 @@ svg > path:first-child:hover {
   line-height: 140px;
   /* Same as height */
 }
-.form-signin button i {
+.form-user button i {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -997,7 +1021,7 @@ svg > path:first-child:hover {
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
 }
-.form-signin button span {
+.form-user button span {
   display: block;
   /* Font styles */
   color: #4575a4;
@@ -1017,11 +1041,11 @@ svg > path:first-child:hover {
   -webkit-backface-visibility: hidden;
 }
 /* Focus and hover on button */
-.form-signin button:focus {
+.form-user button:focus {
   outline: none;
 }
-.form-signin button:hover span,
-.form-signin button:focus span {
+.form-user button:hover span,
+.form-user button:focus span {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
   opacity: 0;
@@ -1031,8 +1055,8 @@ svg > path:first-child:hover {
   -o-transform: rotate(-90deg) translateY(-20px);
   transform: rotate(-90deg) translateY(-20px);
 }
-.form-signin button:hover i,
-.form-signin button:focus i {
+.form-user button:hover i,
+.form-user button:focus i {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
   filter: alpha(opacity=50);
   opacity: 0.5;
@@ -1044,25 +1068,37 @@ svg > path:first-child:hover {
   transition-delay: 0.2s;
 }
 /* Click on button */
-.form-signin button:active span,
-.form-signin button:active i {
+.form-user button:active span,
+.form-user button:active i {
   -webkit-transition: none;
   -moz-transition: none;
   -ms-transition: none;
   -o-transition: none;
   transition: none;
 }
-.form-signin button:active span {
+.form-user button:active span {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
   opacity: 0;
 }
-.form-signin button:active i {
+.form-user button:active i {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
   filter: alpha(opacity=50);
   opacity: 0.5;
   left: 0;
   color: #fff;
+}
+.form-signup {
+  height: 280px !important;
+}
+.form-signup button {
+  height: 281px !important;
+}
+.form-signin {
+  height: 140px !important;
+}
+.form-signin button {
+  height: 141px !important;
 }
 /*
  *
