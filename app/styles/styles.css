@@ -38,7 +38,7 @@ body {
   background: #d8d8d8 url("//d36xtkk24g8jdx.cloudfront.net/bluebar/4ea466d/images/shared/noise-2.png");
   -webkit-font-smoothing: antialiased;
 }
-row {
+.row {
   padding: 0;
 }
 .hidden {
@@ -1079,7 +1079,7 @@ svg > path:first-child:hover {
   top: 0;
   left: -20px;
   font-size: 64px;
-  line-height: 109px;
+  line-height: 140px;
   color: #4575a4;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
@@ -1090,6 +1090,9 @@ svg > path:first-child:hover {
   -ms-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
+}
+.form-signup button i {
+  line-height: 280px;
 }
 .form-user button span {
   display: block;
