@@ -1,3 +1,4 @@
+@import "../scripts/_libs/bootstrap/dist/css/bootstrap.css";
 @import url(http://fonts.googleapis.com/css?family=Puritan:400,700|Ribeye|Acme|Monoton|Oswald);
 @import url(http://fonts.googleapis.com/css?family=Dosis:200,600);
 @font-face {
@@ -105,13 +106,7 @@ svg > path:first-child:hover {
   fill: #4575a4 !important;
 }
 .user-settings {
-  position: relative;
-  padding-bottom: 75px;
-}
-.user-settings .btn-group {
-  position: absolute;
-  right: 0;
-  padding-right: 25px;
+  display: inline;
 }
 /*************************************************************
 

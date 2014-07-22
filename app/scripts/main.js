@@ -28,6 +28,7 @@ require( [
     'routes'
 ], function(angular, app, routes) {
     var $html = angular.element(document.getElementsByTagName('html')[0]);
+    //app.config(function($))
 
     angular.element().ready(function() {
         angular.resumeBootstrap([app['name']]);

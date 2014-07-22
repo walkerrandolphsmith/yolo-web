@@ -1,7 +1,7 @@
 define([], function() {
     return ['$scope', '$http', function($scope, $http) {
         // You can access the scope of the controller from here
-        $scope.currentUser = Parse.User.current();
+
 
         $scope.isNewMember = true;
         $scope.toggleForm = function() {
@@ -9,7 +9,7 @@ define([], function() {
         };
 
         $scope.children = function(){
-            return { devices : $scope.currentUser.get('children') } ;
+            return { devices : $scope.$parent.sessionUser.get('children') } ;
         };
 
         $scope.signUp = function(form) {
@@ -26,7 +26,7 @@ define([], function() {
 
             user.signUp(null, {
                 success: function(user) {
-                    $scope.currentUser = user;
+                    $scope.$parent.sessionUser = user;
                     $scope.$apply();
                 },
                 error: function(user, error) {
@@ -38,7 +38,7 @@ define([], function() {
         $scope.logIn = function(form) {
             Parse.User.logIn(form.username, form.password, {
                 success: function(user) {
-                    $scope.currentUser = user;
+                    $scope.$parent.sessionUser = user;
                     $scope.$apply();
 
                 },
@@ -75,7 +75,7 @@ define([], function() {
 
         $scope.deleteAccount = function(){
 
-            $scope.currentUser.destroy({
+            $scope.$parent.sessionUser.destroy({
                 success: function(obj){
                     $scope.isNewMemeber = true;
                     $scope.apply();
@@ -88,23 +88,23 @@ define([], function() {
         };
 
         $scope.deleteChild = function(index){
-            var children = $scope.currentUser.get('children');
+            var children = $scope.$parent.sessionUser.get('children');
             children.splice(index, 1);
-            $scope.currentUser.save();
+            $scope.$parent.sessionUser.save();
             console.log(children);
         }
 
         $scope.editChild = function(index){
-           var child = $scope.currentUser.get('children')[index];
+           var child = $scope.$parent.sessionUser.get('children')[index];
             child["name"] = "Amy Smith";
            delete child.$$hashKey
-           $scope.currentUser.save();
+            $scope.$parent.sessionUser.save();
         };
-
+        /*
         $scope.logOut = function(form) {
             Parse.User.logOut();
             $scope.currentUser = null;
-        };
+        };*/
 
 
         // because this has happened asynchroneusly we've missed
