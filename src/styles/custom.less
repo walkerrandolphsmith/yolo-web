@@ -27,20 +27,21 @@
 
 
 //Font Colors
-@color: #2E75AB;
+@color: #4575a4;
 @darker-color: darken(@color, 20%);
-@spin-color: lighten(spin(@color, 10), 30%);
+@darkest-color: darken(@color, 80%);
+
+@lighter-color: lighten(spin(@color, 10), 30%);
+@lightest-color: lighten(spin(@color, 2), 50%);
+
 @header-color: #1B1E29;
 
-@darker-blue: darken(@flat_blue, 20%);
-@flat_blue: #4575a4;
-@spin-blue: lighten(spin(@flat_blue, 10), 30%);
 
 //Background Colors
 @footer: rgba(35,83,138,1);
 @white: #fff;
 @grey: #edeeef;
-@dark-grey: #d8d8d8;
+@darker-grey: #d8d8d8;
 
 //Dimensions
 @size: 30px;
@@ -52,6 +53,12 @@
 
 **************************************************************/
 
+.box-sizing (@type: border-box) {
+  -webkit-box-sizing: @type;
+  -moz-box-sizing:    @type;
+  box-sizing:         @type;
+}
+
 .transform (@rotateY, @translateZ)
 {
   -webkit-transform: rotateY(@rotateY) translateZ(@translateZ);
@@ -61,6 +68,13 @@
   transform: rotateY(@rotateY) translateZ(@translateZ);
 }
 
+.transform-origin (@x:center, @y:center) {
+  -webkit-transform-origin: @x @y;
+  -moz-transform-origin:    @x @y;
+  -ms-transform-origin:     @x @y;
+  -o-transform-origin:      @x @y;
+}
+
 .rotate (@rotate)
 {
   -webkit-transform: rotate(@rotate);
@@ -68,6 +82,13 @@
   -o-transform: rotate(@rotate);
   -ms-transform: rotate(@rotate);
   transform: rotate(@rotate);
+}
+
+.skew (@deg, @deg2) {
+  -webkit-transform:       skew(@deg, @deg2);
+  -moz-transform: 	 skew(@deg, @deg2);
+  -ms-transform: 		 skew(@deg, @deg2);
+  -o-transform: 		 skew(@deg, @deg2);
 }
 
 .perspective(@perspective)
@@ -103,6 +124,12 @@
   transform: translate3d(@x, @y, @z);
 }
 
+.animation (@name, @duration) {
+  -webkit-animation: @name @duration 0 ease-in-out;
+  -moz-animation:    @name @duration 0 ease-in-out;
+  -ms-animation:     @name @duration 0 ease-in-out;
+}
+
 .gradient (@origin, @start, @start-percent, @stop, @stop-percent) {
   background-color: @start;
   background-image: -webkit-linear-gradient(@origin, @start @start-percent, @stop @stop-percent);
@@ -111,7 +138,6 @@
   background-image: -ms-linear-gradient(@origin, @start @start-percent, @stop @stop-percent);
   background-image: linear-gradient(@origin, @start @start-percent, @stop @stop-percent);
 }
-
 
 .border-radius (@radius)
 {
@@ -135,6 +161,17 @@
   -webkit-box-shadow: @shadow;
   -moz-box-shadow:    @shadow;
   box-shadow:         @shadow;
+}
+
+.drop-shadow (@x: 0, @y: 1px, @blur: 2px, @spread: 0, @alpha: 0.25) {
+  -webkit-box-shadow:	@x @y @blur @spread rgba(0, 0, 0, @alpha);
+  -moz-box-shadow:	@x @y @blur @spread rgba(0, 0, 0, @alpha);
+  box-shadow:		@x @y @blur @spread rgba(0, 0, 0, @alpha);
+}
+.inner-shadow (@x: 0, @y: 1px, @blur: 2px, @spread: 0, @alpha: 0.25) {
+  -webkit-box-shadow: inset @x @y @blur @spread rgba(0, 0, 0, @alpha);
+  -moz-box-shadow:    inset @x @y @blur @spread rgba(0, 0, 0, @alpha);
+  box-shadow:         inset @x @y @blur @spread rgba(0, 0, 0, @alpha);
 }
 
 /*
@@ -215,7 +252,7 @@
 **************************************************************/
 
 body {
-  background: @dark-grey url(@url);
+  background: @darker-grey url(@url);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -308,8 +345,89 @@ svg {
   width: 100%;
 }
 
-svg > path:first-child:hover {
-  fill: #4575a4 !important;
+
+@-webkit-keyframes fill {
+  0% {
+    fill: @lightest-color;
+  }
+  20% {
+    fill: @lighter-color;
+  }
+  40% {
+    fill: @color;
+  }
+  60% {
+    fill: @darker-color;
+  }
+  80% {
+    fill: @color;
+  }
+  100% {
+    fill: @lighter-color;
+  }
+}
+
+@-moz-keyframes fill {
+  0% {
+    fill: @color;
+  }
+  50% {
+    fill: @darker-color;
+  }
+  100% {
+    fill: @darkest-color;
+  }
+}
+
+@-ms-keyframes fill {
+  0% {
+    fill: @color;
+  }
+  50% {
+    fill: @darker-color;
+  }
+  100% {
+    fill: @darkest-color;
+  }
+}
+
+@-o-keyframes fill {
+  0% {
+    fill: @color;
+  }
+  50% {
+    fill: @darker-color;
+  }
+  100% {
+    fill: @darkest-color;
+  }
+}
+
+@keyframes fill {
+  0% {
+    fill: @color;
+  }
+  50% {
+    fill: @darker-color;
+  }
+  100% {
+    fill: @darkest-color;
+  }
+}
+
+.headers path {
+  pointer-events: none;
+}
+
+.headers path:first-child {
+  pointer-events: bounding-box !important;
+}
+
+.headers path:first-child:hover {
+  -webkit-animation: fill .5s steps(4) infinite;
+  -moz-animation:    fill .5s steps(4) infinite;
+  -ms-animation:     fill .5s steps(4) infinite;
+  animation:         fill .5s steps(4) infinite;
 }
 
 
@@ -324,8 +442,9 @@ svg > path:first-child:hover {
 
 **************************************************************/
 
-#services-role {
-  margin-top: -400px;
+#infographic {
+  height: 100%;
+  margin-top: calc(-30% - 10px);
 }
 
 @-moz-keyframes left-brace-intro {
@@ -784,28 +903,28 @@ svg > path:first-child:hover {
   -o-transform-origin: 310px 790px;
   transform-origin: 310px 790px; }
 
-#complain {
+#personalize {
   -webkit-transform-origin: 512px 1002px;
   -moz-transform-origin: 512px 1002px;
   -ms-transform-origin: 512px 1002px;
   -o-transform-origin: 512px 1002px;
   transform-origin: 512px 1002px; }
 
-#complain-badge {
+#personalize-badge {
   -webkit-transform-origin: 586px 1000px;
   -moz-transform-origin: 586px 1000px;
   -ms-transform-origin: 586px 1000px;
   -o-transform-origin: 586px 1000px;
   transform-origin: 586px 1000px; }
 
-#complain-title {
+#personalize-title {
   -webkit-transform-origin: 718px 921px;
   -moz-transform-origin: 718px 921px;
   -ms-transform-origin: 718px 921px;
   -o-transform-origin: 718px 921px;
   transform-origin: 718px 921px; }
 
-#complain-details {
+#personalize-details {
   -webkit-transform-origin: 717px 1021px;
   -moz-transform-origin: 717px 1021px;
   -ms-transform-origin: 717px 1021px;
@@ -918,7 +1037,7 @@ svg > path:first-child:hover {
   -ms-transform-origin: 563px 877px;
   -o-transform-origin: 563px 877px;
   transform-origin: 563px 877px; }
-.svgLoaded #sms, .svgLoaded #email, .svgLoaded #push, .svgLoaded #complain, .svgLoaded #lock {
+.svgLoaded #sms, .svgLoaded #email, .svgLoaded #push, .svgLoaded #personalize, .svgLoaded #lock {
   -webkit-animation: grow 0.25s ease-in-out;
   -moz-animation: grow 0.25s ease-in-out;
   -ms-animation: grow 0.25s ease-in-out;
@@ -947,7 +1066,7 @@ svg > path:first-child:hover {
   -ms-animation-delay: 2.5s;
   -o-animation-delay: 2.5s;
   animation-delay: 2.5s; }
-.svgLoaded #complain {
+.svgLoaded #personalize {
   -webkit-animation-delay: 2.75s;
   -moz-animation-delay: 2.75s;
   -ms-animation-delay: 2.75s;
@@ -965,17 +1084,17 @@ svg > path:first-child:hover {
 
 /*************************************************************
 
-      Available on Google Play Store
+      Button Available on Google Play Store
 
 **************************************************************/
 
 .a-btn{
-  background:@flat_blue;
-  background:-webkit-gradient(linear,left top,left bottom,color-stop(@flat_blue,0),color-stop(@flat_blue,1));
-  background:-webkit-linear-gradient(top, @flat_blue 0%, @flat_blue 100%);
-  background:-moz-linear-gradient(top,@flat_blue 0%, @flat_blue 100%);
-  background:-o-linear-gradient(top, @flat_blue 0%, @flat_blue 100%);
-  background:linear-gradient(top, @flat_blue 0%, @flat_blue 100%);
+  background: @color;
+  background:-webkit-gradient(linear,left top,left bottom,color-stop(@color,0),color-stop(@color,1));
+  background:-webkit-linear-gradient(top, @color 0%, @color 100%);
+  background:-moz-linear-gradient(top,@color 0%, @color 100%);
+  background:-o-linear-gradient(top, @color 0%, @color 100%);
+  background:linear-gradient(top, @color 0%, @color 100%);
   filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#a9db80', endColorstr='@flat_blue',GradientType=0 );
   padding-left:90px;
   padding-right:105px;
@@ -984,7 +1103,7 @@ svg > path:first-child:hover {
   position:relative;
   color: #fff;
   font-family: Oswald;
-  border:1px solid @flat_blue;
+  border:1px solid @color;
   -webkit-box-shadow:0px 1px 1px rgba(255,255,255,0.8) inset, 1px 1px 3px rgba(0,0,0,0.2);
   -moz-box-shadow:0px 1px 1px rgba(255,255,255,0.8) inset, 1px 1px 3px rgba(0,0,0,0.2);
   box-shadow:0px 1px 1px rgba(255,255,255,0.8) inset, 1px 1px 3px rgba(0,0,0,0.2);
@@ -1029,7 +1148,7 @@ svg > path:first-child:hover {
   padding-top:13px;
   display:block;
   font-size:30px;
-  text-shadow:0px -1px 1px @flat_blue;
+  text-shadow:0px -1px 1px @color;
 }
 .a-btn-text small{
   display:block;
@@ -1042,7 +1161,7 @@ svg > path:first-child:hover {
   top:0px;
   height:100%;
   width:80px;
-  border-left:1px solid @flat_blue;
+  border-left:1px solid @color;
   -webkit-box-shadow:1px 0px 1px rgba(255,255,255,0.4) inset;
   -moz-box-shadow:1px 0px 1px rgba(255,255,255,0.4) inset;
   box-shadow:1px 0px 1px rgba(255,255,255,0.4) inset;
@@ -1059,7 +1178,7 @@ svg > path:first-child:hover {
   top:50%;
   margin:-20px 0px 0px -20px;
   border:1px solid rgba(0,0,0,0.5);
-  background:@darker-blue url(../styles/img/arrow_down.png) no-repeat center center;
+  background:@darker-color url(../styles/img/arrow_down.png) no-repeat center center;
   -webkit-box-shadow:0px 1px 1px rgba(255,255,255,0.3) inset, 0px 1px 2px rgba(255,255,255,0.5);
   -moz-box-shadow:0px 1px 1px rgba(255,255,255,0.3) inset, 0px 1px 2px rgba(255,255,255,0.5);
   box-shadow:0px 1px 1px rgba(255,255,255,0.3) inset, 0px 1px 2px rgba(255,255,255,0.5);
@@ -1089,11 +1208,11 @@ svg > path:first-child:hover {
 .a-btn:active{
   position:relative;
   top:1px;
-  background:@flat_blue;
+  background: @color;
   -webkit-box-shadow:1px 1px 2px rgba(0,0,0,0.4) inset;
   -moz-box-shadow:1px 1px 2px rgba(0,0,0,0.4) inset;
   box-shadow:1px 1px 2px rgba(0,0,0,0.4) inset;
-  border-color:@flat_blue;
+  border-color: @color;
 }
 .a-btn:active .a-btn-icon-right span{
   -webkit-transform:scale(1.4);
@@ -1106,7 +1225,7 @@ svg > path:first-child:hover {
 
 /*************************************************************
 
-      Sign In Form
+      Sign In & Sign Up Forms
 
 **************************************************************/
 
@@ -1173,7 +1292,7 @@ svg > path:first-child:hover {
   /* Font styles */
   font-family: 'Montserrat', sans-serif;
   text-indent: 10px;
-  color: @flat_blue;
+  color: @color;
   text-shadow: 0 1px 2px rgba(0,0,0,0.3);
   font-size: 20px;
 }
@@ -1239,13 +1358,13 @@ svg > path:first-child:hover {
   overflow: hidden;
 
   /* Styles */
-  background: @flat_blue;
-  background: url(../images/noise.png), -moz-radial-gradient(center, ellipse cover, @spin-blue 0%, @flat_blue 100%);
-  background: url(../images/noise.png), -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,@spin-blue), color-stop(100%,@flat_blue));
-  background: url(../images/noise.png), -webkit-radial-gradient(center, ellipse cover, @spin-blue 0%,@flat_blue 100%);
-  background: url(../images/noise.png), -o-radial-gradient(center, ellipse cover, @spin-blue 0%,@flat_blue 100%);
-  background: url(../images/noise.png), -ms-radial-gradient(center, ellipse cover, @spin-blue 0%,@flat_blue 100%);
-  background: url(../images/noise.png), radial-gradient(ellipse at center, @spin-blue 0%,@flat_blue 100%);
+  background: @color;
+  background: url(../images/noise.png), -moz-radial-gradient(center, ellipse cover, @lighter-color 0%, @color 100%);
+  background: url(../images/noise.png), -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,@lighter-color), color-stop(100%,@color));
+  background: url(../images/noise.png), -webkit-radial-gradient(center, ellipse cover, @lighter-color 0%,@color 100%);
+  background: url(../images/noise.png), -o-radial-gradient(center, ellipse cover, @lighter-color 0%,@color 100%);
+  background: url(../images/noise.png), -ms-radial-gradient(center, ellipse cover, @lighter-color 0%,@color 100%);
+  background: url(../images/noise.png), radial-gradient(ellipse at center, @lighter-color 0%,@color 100%);
 
   border-radius: 0 5px 5px 0;
   box-shadow:
@@ -1265,7 +1384,7 @@ svg > path:first-child:hover {
   left: -20px;
   font-size: 64px;
   line-height: 140px;
-  color: @flat_blue;
+  color: @color;
   -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
   opacity: 0;
@@ -1285,7 +1404,7 @@ svg > path:first-child:hover {
   display: block;
 
   /* Font styles */
-  color: @flat_blue;
+  color: @color;
   font-family: 'Montserrat', Arial, sans-serif;
   font-size: 20px;
   text-shadow: 0 1px 0 rgba(255,255,255,0.4);
@@ -1464,21 +1583,11 @@ svg > path:first-child:hover {
 
 }
 
-.footer-wrapper{
-  position: absolute;
-  left: 0;
-  width: 100%;
-  background: #4575A5 url("//d36xtkk24g8jdx.cloudfront.net/bluebar/4ea466d/images/shared/noise-2.png");
-  border-top: 1px solid #000;
-  footer {
-    text-align: center;
-    padding-top: 25px;
-    padding-bottom: 25px;
-  }
-}
+/*************************************************************
 
+      Scroll Animations
 
-/**************************************************/
+**************************************************************/
 
 
 .cbp-so-scroller {
@@ -1608,9 +1717,14 @@ svg > path:first-child:hover {
 
 
 
-/**** BEEP FOOTER
+/*************************************************************
 
-****/
+      Footer
+
+**************************************************************/
+footer {
+  border-top: 1px solid #ccc;
+}
 
 .hi-icon-wrap {
   text-align: center;
@@ -1629,7 +1743,7 @@ svg > path:first-child:hover {
   text-align: center;
   position: relative;
   z-index: 1;
-  color: #fff;
+  color: @color;
 }
 
 .hi-icon:after {
@@ -1683,7 +1797,7 @@ svg > path:first-child:hover {
   -moz-transform: scale(0.93);
   -ms-transform: scale(0.93);
   transform: scale(0.93);
-  color: #fff;
+  color: @darker-color;
   text-decoration: none;
 }
 
@@ -1699,10 +1813,10 @@ svg > path:first-child:hover {
   }
   40% {
     opacity: 0.5;
-    box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #fff, 0 0 0 10px rgba(255,255,255,0.5);
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px @color, 0 0 0 10px rgba(255,255,255,0.5);
   }
   100% {
-    box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #fff, 0 0 0 10px rgba(255,255,255,0.5);
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px @color, 0 0 0 10px rgba(255,255,255,0.5);
     -webkit-transform: scale(1.5);
     opacity: 0;
   }
@@ -1713,10 +1827,10 @@ svg > path:first-child:hover {
   }
   40% {
     opacity: 0.5;
-    box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #fff, 0 0 0 10px rgba(255,255,255,0.5);
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px @color, 0 0 0 10px rgba(255,255,255,0.5);
   }
   100% {
-    box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #fff, 0 0 0 10px rgba(255,255,255,0.5);
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px @color, 0 0 0 10px rgba(255,255,255,0.5);
     -moz-transform: scale(1.5);
     opacity: 0;
   }
@@ -1727,10 +1841,10 @@ svg > path:first-child:hover {
   }
   40% {
     opacity: 0.5;
-    box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #fff, 0 0 0 10px rgba(255,255,255,0.5);
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px @color, 0 0 0 10px rgba(255,255,255,0.5);
   }
   100% {
-    box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #fff, 0 0 0 10px rgba(255,255,255,0.5);
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px @color, 0 0 0 10px rgba(255,255,255,0.5);
     transform: scale(1.5);
     opacity: 0;
   }

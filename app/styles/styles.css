@@ -110,8 +110,81 @@ svg {
   heigth: 100%;
   width: 100%;
 }
-svg > path:first-child:hover {
-  fill: #4575a4 !important;
+@-webkit-keyframes fill {
+  0% {
+    fill: #f0f4f8;
+  }
+  20% {
+    fill: #a8b9da;
+  }
+  40% {
+    fill: #4575a4;
+  }
+  60% {
+    fill: #27425c;
+  }
+  80% {
+    fill: #4575a4;
+  }
+  100% {
+    fill: #a8b9da;
+  }
+}
+@-moz-keyframes fill {
+  0% {
+    fill: #4575a4;
+  }
+  50% {
+    fill: #27425c;
+  }
+  100% {
+    fill: #000000;
+  }
+}
+@-ms-keyframes fill {
+  0% {
+    fill: #4575a4;
+  }
+  50% {
+    fill: #27425c;
+  }
+  100% {
+    fill: #000000;
+  }
+}
+@-o-keyframes fill {
+  0% {
+    fill: #4575a4;
+  }
+  50% {
+    fill: #27425c;
+  }
+  100% {
+    fill: #000000;
+  }
+}
+@keyframes fill {
+  0% {
+    fill: #4575a4;
+  }
+  50% {
+    fill: #27425c;
+  }
+  100% {
+    fill: #000000;
+  }
+}
+.headers path {
+  pointer-events: none;
+}
+.headers path:first-child {
+  pointer-events: bounding-box !important;
+}
+.headers path:first-child:hover {
+  -webkit-animation: fill 0.5s steps(4) infinite;
+  -moz-animation: fill 0.5s steps(4) infinite;
+  -ms-animation: fill 0.5s steps(4) infinite;
+  animation: fill 0.5s steps(4) infinite;
 }
 .user-settings {
   display: inline;
@@ -121,8 +194,9 @@ svg > path:first-child:hover {
       Services Role
 
 **************************************************************/
-#services-role {
-  margin-top: -400px;
+#infographic {
+  height: 100%;
+  margin-top: calc(-40%);
 }
 @-moz-keyframes left-brace-intro {
   0% {
@@ -613,28 +687,28 @@ svg > path:first-child:hover {
   -o-transform-origin: 310px 790px;
   transform-origin: 310px 790px;
 }
-#complain {
+#personalize {
   -webkit-transform-origin: 512px 1002px;
   -moz-transform-origin: 512px 1002px;
   -ms-transform-origin: 512px 1002px;
   -o-transform-origin: 512px 1002px;
   transform-origin: 512px 1002px;
 }
-#complain-badge {
+#personalize-badge {
   -webkit-transform-origin: 586px 1000px;
   -moz-transform-origin: 586px 1000px;
   -ms-transform-origin: 586px 1000px;
   -o-transform-origin: 586px 1000px;
   transform-origin: 586px 1000px;
 }
-#complain-title {
+#personalize-title {
   -webkit-transform-origin: 718px 921px;
   -moz-transform-origin: 718px 921px;
   -ms-transform-origin: 718px 921px;
   -o-transform-origin: 718px 921px;
   transform-origin: 718px 921px;
 }
-#complain-details {
+#personalize-details {
   -webkit-transform-origin: 717px 1021px;
   -moz-transform-origin: 717px 1021px;
   -ms-transform-origin: 717px 1021px;
@@ -758,7 +832,7 @@ svg > path:first-child:hover {
 .svgLoaded #sms,
 .svgLoaded #email,
 .svgLoaded #push,
-.svgLoaded #complain,
+.svgLoaded #personalize,
 .svgLoaded #lock {
   -webkit-animation: grow 0.25s ease-in-out;
   -moz-animation: grow 0.25s ease-in-out;
@@ -792,7 +866,7 @@ svg > path:first-child:hover {
   -o-animation-delay: 2.5s;
   animation-delay: 2.5s;
 }
-.svgLoaded #complain {
+.svgLoaded #personalize {
   -webkit-animation-delay: 2.75s;
   -moz-animation-delay: 2.75s;
   -ms-animation-delay: 2.75s;
@@ -808,7 +882,7 @@ svg > path:first-child:hover {
 }
 /*************************************************************
 
-      Available on Google Play Store
+      Button Available on Google Play Store
 
 **************************************************************/
 .a-btn {
@@ -946,7 +1020,7 @@ svg > path:first-child:hover {
 }
 /*************************************************************
 
-      Sign In Form
+      Sign In & Sign Up Forms
 
 **************************************************************/
 .signin a,
@@ -1251,19 +1325,11 @@ svg > path:first-child:hover {
 #logOutButton {
   text-align: center;
 }
-.footer-wrapper {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  background: #4575a5 url("//d36xtkk24g8jdx.cloudfront.net/bluebar/4ea466d/images/shared/noise-2.png");
-  border-top: 1px solid #000;
-}
-.footer-wrapper footer {
-  text-align: center;
-  padding-top: 25px;
-  padding-bottom: 25px;
-}
-/**************************************************/
+/*************************************************************
+
+      Scroll Animations
+
+**************************************************************/
 .cbp-so-scroller {
   margin-top: 3em;
   overflow: hidden;
@@ -1367,9 +1433,14 @@ svg > path:first-child:hover {
     max-width: 100%;
   }
 }
-/**** BEEP FOOTER
+/*************************************************************
 
-****/
+      Footer
+
+**************************************************************/
+footer {
+  border-top: 1px solid #ccc;
+}
 .hi-icon-wrap {
   text-align: center;
   margin: 0 auto;
@@ -1386,7 +1457,7 @@ svg > path:first-child:hover {
   text-align: center;
   position: relative;
   z-index: 1;
-  color: #fff;
+  color: #4575a4;
 }
 .hi-icon:after {
   pointer-events: none;
@@ -1435,7 +1506,7 @@ svg > path:first-child:hover {
   -moz-transform: scale(0.93);
   -ms-transform: scale(0.93);
   transform: scale(0.93);
-  color: #fff;
+  color: #27425c;
   text-decoration: none;
 }
 .hi-icon-effect-8 .hi-icon:hover:after {
@@ -1449,10 +1520,10 @@ svg > path:first-child:hover {
   }
   40% {
     opacity: 0.5;
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 10px 10px #ffffff, 0 0 0 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 10px 10px #4575a4, 0 0 0 10px rgba(255, 255, 255, 0.5);
   }
   100% {
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 10px 10px #ffffff, 0 0 0 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 10px 10px #4575a4, 0 0 0 10px rgba(255, 255, 255, 0.5);
     -webkit-transform: scale(1.5);
     opacity: 0;
   }
@@ -1463,10 +1534,10 @@ svg > path:first-child:hover {
   }
   40% {
     opacity: 0.5;
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 10px 10px #ffffff, 0 0 0 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 10px 10px #4575a4, 0 0 0 10px rgba(255, 255, 255, 0.5);
   }
   100% {
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 10px 10px #ffffff, 0 0 0 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 10px 10px #4575a4, 0 0 0 10px rgba(255, 255, 255, 0.5);
     -moz-transform: scale(1.5);
     opacity: 0;
   }
@@ -1477,10 +1548,10 @@ svg > path:first-child:hover {
   }
   40% {
     opacity: 0.5;
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 10px 10px #ffffff, 0 0 0 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 10px 10px #4575a4, 0 0 0 10px rgba(255, 255, 255, 0.5);
   }
   100% {
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 10px 10px #ffffff, 0 0 0 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 10px 10px #4575a4, 0 0 0 10px rgba(255, 255, 255, 0.5);
     transform: scale(1.5);
     opacity: 0;
   }
@@ -1514,6 +1585,11 @@ svg > path:first-child:hover {
   svg {
     width: 50%;
     height: 50%;
+  }
+  #infographic {
+    visibility: none;
+    height: 0;
+    width: 0;
   }
 }
 /*
