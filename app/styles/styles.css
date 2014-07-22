@@ -41,6 +41,12 @@ body {
 }
 .row {
   padding: 0;
+  margin-right: 0;
+  margin-left: 0;
+}
+.container {
+  padding-right: 0;
+  padding-left: 0;
 }
 .hidden {
   visibility: hidden;
@@ -59,6 +65,7 @@ body {
   padding-left: 0 !important;
   padding-right: 0 !important;
   box-shadow: 0 0 8px black;
+  width: 100%;
   min-height: 100vh;
   height: auto;
   transition: all 1.0s ease;
@@ -73,7 +80,7 @@ nav {
 }
 .hero h1 {
   font-family: "Oswald" sans-serif;
-  font-size: 212px;
+  font-size: 22vw;
   text-align: center;
   text-transform: uppercase;
 }
@@ -85,7 +92,7 @@ nav {
 }
 .headers h1 {
   font-family: "Oswald" sans-serif;
-  font-size: 26px;
+  font-size: 4em;
   text-align: center;
   text-transform: uppercase;
   margin-top: -20px;
@@ -96,7 +103,6 @@ nav {
   text-align: center;
 }
 .services {
-  background: #dedede url("//d36xtkk24g8jdx.cloudfront.net/bluebar/4ea466d/images/shared/noise-2.png");
   border-top: 1px solid #ccc;
 }
 svg {
@@ -115,7 +121,7 @@ svg > path:first-child:hover {
 
 **************************************************************/
 #services-role {
-  margin-top: -250px;
+  margin-top: -400px;
 }
 @-moz-keyframes left-brace-intro {
   0% {
@@ -1239,10 +1245,22 @@ svg > path:first-child:hover {
 #header-or-spacer {
   margin: 0px auto;
   margin-top: 50px;
-  width: 550px;
+  width: 50%;
 }
 #logOutButton {
   text-align: center;
+}
+.footer-wrapper {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background: #4575a5 url("//d36xtkk24g8jdx.cloudfront.net/bluebar/4ea466d/images/shared/noise-2.png");
+  border-top: 1px solid #000;
+}
+.footer-wrapper footer {
+  text-align: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 /**************************************************/
 .cbp-so-scroller {
@@ -1273,9 +1291,7 @@ svg > path:first-child:hover {
 }
 /* Sides */
 .cbp-so-side {
-  width: 100%;
   text-align: center;
-  float: left;
   margin: 0;
   padding: 3em 4%;
   overflow: hidden;
@@ -1283,6 +1299,12 @@ svg > path:first-child:hover {
   -webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
   -moz-transition: -moz-transform 0.5s, opacity 0.5s;
   transition: transform 0.5s, opacity 0.5s;
+}
+.cbp-so-side h2 {
+  font-family: "Oswald" sans-serif;
+}
+.cbp-so-side p {
+  font-family: 'Dosis', 'Lato', sans-serif;
 }
 /* Clear floats of children */
 .cbp-so-side:before,
