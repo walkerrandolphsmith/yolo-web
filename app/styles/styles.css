@@ -83,6 +83,7 @@ nav {
   font-size: 22vw;
   text-align: center;
   text-transform: uppercase;
+  pointer-events: none;
 }
 .hero h1 abbr {
   border-bottom: none;
@@ -1489,11 +1490,6 @@ svg > path:first-child:hover {
     width: 60%;
   }
 }
-@media screen and (max-width: 991) {
-  .headers svg {
-    width: 100%;
-  }
-}
 /*
  *
  * iPad 3+
@@ -1514,6 +1510,12 @@ svg > path:first-child:hover {
  * iPhone 5
  *
  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
+  svg {
+    width: 50%;
+    height: 50%;
+  }
+}
 /*
  *
  * iPhone <5
