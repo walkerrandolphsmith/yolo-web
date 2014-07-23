@@ -20,12 +20,43 @@ define(['angular', 'services'], function (angular) {
                 $injector.invoke(navigationController, this, {'$scope': $scope});
             });
         }])
-        // More involved example where controller is required from an external file
+        .controller('MainController', function mainController ($scope, $modal, $http) {
+            $scope.items = ['item1', 'item2', 'item3'];
+            $scope.open = function (modalName) {
+                var modalInstance = $modal.open({
+                    templateUrl: 'add_modal.html',
+                    controller: 'ModalController',
+                    resolve: {
+                        'items': function() { return $scope.items; }
+                    }
+                });
+                console.log('modal opened');
+                modalInstance.result.then(function (response) {
+                    $scope.selected = response;
+                    console.log(response);
+                }, function () {
+                    console.log('Modal dismissed at: ' + new Date());
+                });
+            };
+        })
+        .controller('ModalController', function modalController ($scope, $modalInstance, items) {
+            $scope.items = items;
+            $scope.selected = {
+                item: $scope.items[0]
+            };
+            $scope.ok = function () {
+                $modalInstance.close($scope.selected.item);
+                console.log('ok');
+            };
+            $scope.cancel = function () {
+                $modalInstance.dismiss('cancel');
+                console.log('cancel');
+            };
+        })
+    // More involved example where controller is required from an external file
         .controller('SignInController', ['$scope', '$injector', function($scope, $injector) {
             require(['controllers/signInController'], function(signInController) {
                 $injector.invoke(signInController, this, {'$scope': $scope});
             });
         }]);
-
-
 });

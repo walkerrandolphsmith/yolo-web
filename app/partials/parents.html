@@ -1,5 +1,4 @@
 <div class="container" ng-hide="sessionUser">
-
     <div class="signup" ng-hide="isNewMember">
         <form class="form-user form-signup clearfix">
             <p>
@@ -32,54 +31,27 @@
 </div>
 
 <div class="container" ng-show="sessionUser">
-    <div class="row">
-        <ul class="children-devices">
-            <li data-ng-repeat="device in children().devices">
-                {{device.name}}
-                <span data-ng-repeat="device in children().devices">
+
+    <ul class="children-devices">
+        <li class="row" data-ng-repeat="device in $parent.sessionUser.children()">
+            <input type="text" name="childName" placeholder="{{device.name}}" ng-model="device.name">
+                <span>
                     <a class="btn btn-danger" ng-click="deleteChild($index)">
                         <i class="fa fa-trash-o fa-lg"></i> Delete
                     </a>
 
                      <a class="btn btn-primary" ng-click="editChild($index)">
-                         <i class="fa fa-edit fa-lg"></i> Edit
+                         <i class="fa fa-edit fa-lg"></i> Save
                      </a>
 
-                      <a class="btn btn-primary" ng-click="remoteLock(device.channel)">
+                      <a class="btn btn-primary" ng-click="lockChild(device.channel)">
                           <i class="fa fa-lock fa-lg"></i> Lock
                       </a>
                 </span>
-            </li>
-            <div class="or-spacer">
-                <div class="mask"></div>
+        </li>
+        <div class="or-spacer">
+            <div class="mask"></div>
 
-            </div>
-        </ul>
-    </div>
+        </div>
+    </ul>
 </div>
-
-
-<!--
-<div ng-controller="ModalEditChild">
-    <script type="text/ng-template" id="modalEditChild.html">
-        <div class="modal-header">
-            <h3 class="modal-title">I'm a modal!</h3>
-        </div>
-        <div class="modal-body">
-
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary" ng-click="ok()">OK</button>
-            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-        </div>
-    </script>
-</div>
-
-<button class="btn btn-default" ng-click="open()">Open me!</button>
--->
-
-
-<!--<p>
-    Showing of 'interpolate' filter:
-    {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>-->

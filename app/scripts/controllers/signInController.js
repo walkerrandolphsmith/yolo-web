@@ -2,14 +2,9 @@ define([], function() {
     return ['$scope', '$http', function($scope, $http) {
         // You can access the scope of the controller from here
 
-
         $scope.isNewMember = true;
         $scope.toggleForm = function() {
             this.isNewMember = !this.isNewMember;
-        };
-
-        $scope.children = function(){
-            return { devices : $scope.$parent.sessionUser.get('children') } ;
         };
 
         $scope.signUp = function(form) {
@@ -48,7 +43,7 @@ define([], function() {
             });
         };
 
-        $scope.remoteLock = function(channel) {
+        $scope.lockChild = function(channel) {
 
             var notification = "{"
                 + "\"action\": \"com.example.UPDATE_STATUS\","
@@ -69,24 +64,6 @@ define([], function() {
             });
         };
 
-        $scope.updateAccount = function(){
-
-        }
-
-        $scope.deleteAccount = function(){
-
-            $scope.$parent.sessionUser.destroy({
-                success: function(obj){
-                    $scope.isNewMemeber = true;
-                    $scope.apply();
-                },
-                error: function(obj){
-
-                }
-            });
-
-        };
-
         $scope.deleteChild = function(index){
             var children = $scope.$parent.sessionUser.get('children');
             children.splice(index, 1);
@@ -95,17 +72,17 @@ define([], function() {
         }
 
         $scope.editChild = function(index){
-           var child = $scope.$parent.sessionUser.get('children')[index];
-            child["name"] = "Amy Smith";
-           delete child.$$hashKey
-            $scope.$parent.sessionUser.save();
-        };
-        /*
-        $scope.logOut = function(form) {
-            Parse.User.logOut();
-            $scope.currentUser = null;
-        };*/
+           var child = $scope.$parent.sessionUser.children()[index];
+            if(child["name"].length > 0 && child["name"].length < 15)
+            {
+                console.log("Edited Successfully");
+                delete child.$$hashKey
+                $scope.$parent.sessionUser.save();
+            }else{
+                console.log("Edited UnSuccessfully");
+            }
 
+        };
 
         // because this has happened asynchroneusly we've missed
         // Angular's initial call to $apply after the controller has been loaded

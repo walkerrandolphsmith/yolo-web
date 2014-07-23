@@ -1,0 +1,203 @@
+/*************************************************************
+
+      Utilities
+
+**************************************************************/
+
+.box-sizing (@type: border-box) {
+  -webkit-box-sizing: @type;
+  -moz-box-sizing:    @type;
+  box-sizing:         @type;
+}
+
+.transform (@rotateY, @translateZ)
+{
+  -webkit-transform: rotateY(@rotateY) translateZ(@translateZ);
+  -moz-transform: rotateY(@rotateY) translateZ(@translateZ);
+  -o-transform: rotateY(@rotateY) translateZ(@translateZ);
+  -ms-transform: rotateY(@rotateY) translateZ(@translateZ);
+  transform: rotateY(@rotateY) translateZ(@translateZ);
+}
+
+.transform-origin (@x:center, @y:center) {
+  -webkit-transform-origin: @x @y;
+  -moz-transform-origin:    @x @y;
+  -ms-transform-origin:     @x @y;
+  -o-transform-origin:      @x @y;
+}
+
+.rotate (@rotate)
+{
+  -webkit-transform: rotate(@rotate);
+  -moz-transform: rotate(@rotate);
+  -o-transform: rotate(@rotate);
+  -ms-transform: rotate(@rotate);
+  transform: rotate(@rotate);
+}
+
+.skew (@deg, @deg2) {
+  -webkit-transform:       skew(@deg, @deg2);
+  -moz-transform: 	 skew(@deg, @deg2);
+  -ms-transform: 		 skew(@deg, @deg2);
+  -o-transform: 		 skew(@deg, @deg2);
+}
+
+.perspective(@perspective)
+{
+  -webkit-perspective: @perspective;
+  -moz-perspective: @perspective;
+  -o-perspective: @perspective;
+  -ms-perspective: @perspective;
+  perspective: @perspective;
+}
+
+.perspective-origin(@percent, @zoom)
+{
+  -webkit-perspective-origin: @percent @zoom;
+  -moz-perspective-origin: @percent @zoom;
+  -o-perspective-origin: @percent @zoom;
+  -ms-perspective-origin: @percent @zoom;
+  perspective-origin: @percent @zoom;
+}
+
+.preserve-3d (@threeDee) {
+  -webkit-transform-style: @threeDee;
+  -moz-transform-style: @threeDee;
+  -o-transform-style: @threeDee;
+  transform-style: @threeDee;
+}
+
+.transform-translate(@x, @y, @z) {
+  -webkit-transform: translate3d(@x, @y, @z);
+  -moz-transform: translate3d(@x, @y, @z);
+  -o-transform: translate3d(@x, @y, @z);
+  -ms-transform: translate3d(@x, @y, @z);
+  transform: translate3d(@x, @y, @z);
+}
+
+.animation (@name, @duration) {
+  -webkit-animation: @name @duration 0 ease-in-out;
+  -moz-animation:    @name @duration 0 ease-in-out;
+  -ms-animation:     @name @duration 0 ease-in-out;
+}
+
+.gradient (@origin, @start, @start-percent, @stop, @stop-percent) {
+  background-color: @start;
+  background-image: -webkit-linear-gradient(@origin, @start @start-percent, @stop @stop-percent);
+  background-image: -moz-linear-gradient(@origin, @start @start-percent, @stop @stop-percent);
+  background-image: -o-linear-gradient(@origin, @start @start-percent, @stop @stop-percent);
+  background-image: -ms-linear-gradient(@origin, @start @start-percent, @stop @stop-percent);
+  background-image: linear-gradient(@origin, @start @start-percent, @stop @stop-percent);
+}
+
+.border-radius (@radius)
+{
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  -o-border-radius: @radius;
+  -ms-border-radius: @radius;
+  border-radius: @radius;
+}
+//x-offset px, y-offset px, blur px, color
+.text-shadow (@shadow)
+{
+  -webkit-text-shadow: @shadow @shadow;
+  -moz-text-shadow: @shadow @shadow;
+  -o-text-shadow: @shadow @shadow;
+  -ms-text-shadow: @shadow @shadow;
+  text-shadow: @shadow @shadow;
+}
+
+.box-shadow (@shadow) {
+  -webkit-box-shadow: @shadow;
+  -moz-box-shadow:    @shadow;
+  box-shadow:         @shadow;
+}
+
+.drop-shadow (@x: 0, @y: 1px, @blur: 2px, @spread: 0, @alpha: 0.25) {
+  -webkit-box-shadow:	@x @y @blur @spread rgba(0, 0, 0, @alpha);
+  -moz-box-shadow:	@x @y @blur @spread rgba(0, 0, 0, @alpha);
+  box-shadow:		@x @y @blur @spread rgba(0, 0, 0, @alpha);
+}
+.inner-shadow (@x: 0, @y: 1px, @blur: 2px, @spread: 0, @alpha: 0.25) {
+  -webkit-box-shadow: inset @x @y @blur @spread rgba(0, 0, 0, @alpha);
+  -moz-box-shadow:    inset @x @y @blur @spread rgba(0, 0, 0, @alpha);
+  box-shadow:         inset @x @y @blur @spread rgba(0, 0, 0, @alpha);
+}
+
+/*
+    grayscale, invert, sepia, contrast, saturate (%)
+    brightness(real)
+    blur(px)
+    hue-rotate(deg)
+*/
+
+.blur(@amount) {
+  -webkit-filter: blur(@amount);
+  -moz-filter: blur(@amount);
+  -o-filter: blur(@amount);
+  -ms-filter: blur(@amount);
+  filter: blur(@amount);
+}
+
+.brightness(@amount) {
+  -webkit-filter: brightness(@amount);
+  -moz-filter: brightness(@amount);
+  -o-filter: brightness(@amount);
+  -ms-filter: brightness(@amount);
+  filter: brightness(@amount);
+}
+
+.contrast(@amount) {
+  -webkit-filter: contrast(@amount);
+  -moz-filter: contrast(@amount);
+  -o-filter: contrast(@amount);
+  -ms-filter: contrast(@amount);
+  filter: contrast(@amount);
+}
+
+.invert(@amount) {
+  -webkit-filter: invert(@amount);
+  -moz-filter: invert(@amount);
+  -o-filter: invert(@amount);
+  -ms-filter: invert(@amount);
+  filter: invert(@amount);
+}
+
+.saturate(@amount) {
+  -webkit-filter: saturate(@amount);
+  -moz-filter: saturate(@amount);
+  -o-filter: saturate(@amount);
+  -ms-filter: saturate(@amount);
+  filter: saturate(@amount);
+}
+
+.hue-rotate(@amount) {
+  -webkit-filter: hue-rotate(@amount);
+  -moz-filter: hue-rotate(@amount);
+  -o-filter: hue-rotate(@amount);
+  -ms-filter: hue-rotate(@amount);
+  filter: hue-rotate(@amount);
+}
+
+.grayscale(@amount) {
+  -webkit-filter: grayscale(@amount);
+  -moz-filter: grayscale(@amount);
+  -o-filter: grayscale(@amount);
+  -ms-filter: grayscale(@amount);
+  filter: grayscale(@amount);
+}
+
+.sepia(@amount) {
+  -webkit-filter: sepia(@amount);
+  -moz-filter: sepia(@amount);
+  -o-filter: sepia(@amount);
+  -ms-filter: sepia(@amount);
+  filter: sepia(@amount);
+}
+
+/*************************************************************
+
+      End of Utilities
+
+**************************************************************/
