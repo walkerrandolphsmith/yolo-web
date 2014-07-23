@@ -15,10 +15,8 @@ define(['angular', 'app'], function(angular, app) {
     }])
         .run(function($rootScope){
             Parse.initialize("yG0OKddCMctN5vtCj5ocUbDxrRJjlPuzZLXMOXA9", "MgdbUbWiTaPbuZOp2N4rMsON7av9ITWvzSC0qiuV");
-
-
+            //Walker wants to comment on this
             var User = Parse.User.extend({
-
                 username: function (){ return this.get('username') },
                 password: function (){ return this.get('password') },
                 email: function (){ return this.get('email') },
