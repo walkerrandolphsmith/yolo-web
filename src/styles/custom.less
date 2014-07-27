@@ -87,16 +87,6 @@ nav {
   }
 }
 
-.services {
-  border-top: 1px solid #ccc;
-}
-
-svg {
-  heigth : 100%;
-  width: 100%;
-}
-
-
 @-webkit-keyframes fill {
   0% {
     fill: @lightest-color;
@@ -184,141 +174,53 @@ svg {
 
 /*************************************************************
 
-      Footer
+      Slider Section
 
 **************************************************************/
 
-footer {
+.services {
   border-top: 1px solid #ccc;
 }
 
-.hi-icon-wrap {
-  text-align: center;
-  margin: 0 auto;
-  padding: 2em 0 3em;
-}
-
-.hi-icon {
-  display: inline-block;
-  font-size: 0px;
-  cursor: pointer;
-  margin: 15px 30px;
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-  color: @color;
-}
-
-.hi-icon:after {
-  pointer-events: none;
-  position: absolute;
+svg {
+  heigth : 100%;
   width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  content: '';
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
 }
 
-.hi-icon:before {
-  speak: none;
-  font-size: 48px;
-  line-height: 90px;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  display: block;
-  -webkit-font-smoothing: antialiased;
-}
+ol#facts {
+  display: inline-block;
+  text-align: left;
 
-.hi-icon-effect-8 .hi-icon {
-  background: rgba(255,255,255,0.1);
-  -webkit-transition: -webkit-transform ease-out 0.1s, background 0.2s;
-  -moz-transition: -moz-transform ease-out 0.1s, background 0.2s;
-  transition: transform ease-out 0.1s, background 0.2s;
-}
+  list-style-type: none;
+  list-style-type: decimal !ie; /*IE 7- hack*/
 
-.hi-icon-effect-8 .hi-icon:after {
-  top: 0;
-  left: 0;
+  margin: 0;
+  margin-left: 3em;
+  margin-top: -3em;
+  margin-bottom: 3em;
   padding: 0;
-  z-index: -1;
-  box-shadow: 0 0 0 2px rgba(255,255,255,0.1);
-  opacity: 0;
-  -webkit-transform: scale(0.9);
-  -moz-transform: scale(0.9);
-  -ms-transform: scale(0.9);
-  transform: scale(0.9);
-}
 
-.no-touch .hi-icon-effect-8 .hi-icon:hover {
-  background: rgba(255,255,255,0.05);
-  -webkit-transform: scale(0.93);
-  -moz-transform: scale(0.93);
-  -ms-transform: scale(0.93);
-  transform: scale(0.93);
-  color: @darker-color;
-  text-decoration: none;
+  counter-reset: li-counter;
 }
+ol#facts > li{
+  position: relative;
+  margin-bottom: 20px;
+  padding-left: 0.5em;
+  min-height: 3em;
+  border-left: 2px solid #CCCCCC;
+}
+ol#facts > li:before {
+  position: absolute;
+  top: 0;
+  left: -1em;
+  width: 0.8em;
 
-.hi-icon-effect-8 .hi-icon:hover:after {
-  -webkit-animation: sonarEffect 1.3s ease-out 75ms;
-  -moz-animation: sonarEffect 1.3s ease-out 75ms;
-  animation: sonarEffect 1.3s ease-out 75ms;
-}
+  font-size: 3em;
+  line-height: 1;
+  font-weight: bold;
+  text-align: right;
+  color: #464646;
 
-@-webkit-keyframes sonarEffect {
-  0% {
-    opacity: 0.3;
-  }
-  40% {
-    opacity: 0.5;
-    box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px @color, 0 0 0 10px rgba(255,255,255,0.5);
-  }
-  100% {
-    box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px @color, 0 0 0 10px rgba(255,255,255,0.5);
-    -webkit-transform: scale(1.5);
-    opacity: 0;
-  }
+  content: counter(li-counter);
+  counter-increment: li-counter;
 }
-@-moz-keyframes sonarEffect {
-  0% {
-    opacity: 0.3;
-  }
-  40% {
-    opacity: 0.5;
-    box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px @color, 0 0 0 10px rgba(255,255,255,0.5);
-  }
-  100% {
-    box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px @color, 0 0 0 10px rgba(255,255,255,0.5);
-    -moz-transform: scale(1.5);
-    opacity: 0;
-  }
-}
-@keyframes sonarEffect {
-  0% {
-    opacity: 0.3;
-  }
-  40% {
-    opacity: 0.5;
-    box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px @color, 0 0 0 10px rgba(255,255,255,0.5);
-  }
-  100% {
-    box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px @color, 0 0 0 10px rgba(255,255,255,0.5);
-    transform: scale(1.5);
-    opacity: 0;
-  }
-}
-
-
-@media screen and (max-width: 1199px) {
-  .headers svg {
-    width: 60%;
-  }
-}
-
