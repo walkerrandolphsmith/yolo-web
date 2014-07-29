@@ -23,7 +23,7 @@ define(['angular', 'app'], function(angular, app) {
                 phone: function (){ return this.get('phone') },
                 children: function (){ return this.get('children') },
                 receivePushNotifications: function (){ return this.get('receivePushNotifications'); },
-                receiveEmails: function (){ return this.get('receiveReceiveEmails'); },
+                receiveEmails: function (){ return this.get('receiveEmails'); },
                 receiveSMS: function (){ return this.get('receiveSMS'); },
                 frequency: function () { return this.get('frequency'); }
 
