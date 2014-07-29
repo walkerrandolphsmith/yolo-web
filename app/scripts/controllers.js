@@ -20,26 +20,12 @@ define(['angular', 'services'], function (angular) {
                 $injector.invoke(navigationController, this, {'$scope': $scope});
             });
         }])
-        .controller('MainController', function mainController ($scope, $modal, $http) {
-            $scope.items = ['item1', 'item2', 'item3'];
-            $scope.open = function (modalName) {
-                var modalInstance = $modal.open({
-                    templateUrl: 'add_modal.html',
-                    controller: 'ModalController',
-                    resolve: {
-                        'items': function() { return $scope.items; }
-                    }
-                });
-                console.log('modal opened');
-                modalInstance.result.then(function (response) {
-                    $scope.selected = response;
-                    console.log(response);
-                }, function () {
-                    console.log('Modal dismissed at: ' + new Date());
-                });
-            };
-        })
-        .controller('ModalController', function modalController ($scope, $modalInstance, items) {
+        .controller('SettingsController', ['$scope', '$injector', function ($scope,  $injector) {
+            require(['controllers/settingsController'], function(settingsController) {
+                $injector.invoke(settingsController, this, {'$scope': $scope});
+            });
+        }])
+       .controller('ModalController', function modalController ($scope, $modalInstance, items) {
             $scope.items = items;
             $scope.selected = {
                 item: $scope.items[0]

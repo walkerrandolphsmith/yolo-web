@@ -51,5 +51,42 @@ define(['angular', 'app'], function(angular, app) {
                 });
 
             };
+
+            $rootScope.setReceivePushNotifications = function($event){
+                var checkbox = $event.target;
+                var result = (checkbox.checked ? true : false);
+                $rootScope.sessionUser.set('receivePushNotifications', result);
+                $rootScope.sessionUser.save(null, {
+                   success: function(){
+
+                   }
+                });
+            }
+
+            $rootScope.setReceiveEmails = function($event){
+                var checkbox = $event.target;
+                var result = (checkbox.checked ? true : false);
+                $rootScope.sessionUser.set('receiveEmails', result);
+                $rootScope.sessionUser.save(null, {
+                    success: function(){
+
+                    }
+                });
+            }
+
+            $rootScope.setReceiveSMS = function($event){
+                var checkbox = $event.target;
+                var result = (checkbox.checked ? true : false);
+                $rootScope.sessionUser.set('receiveSMS', result);
+                $rootScope.sessionUser.save(null, {
+                    success: function(){
+
+                    }
+                });
+            }
+
+            $rootScope.data = {};
+            $rootScope.data.numberSelection = $rootScope.sessionUser.frequency();
+
         })
 });

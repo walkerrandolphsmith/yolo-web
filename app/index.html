@@ -17,18 +17,20 @@
                 <a href="#/about" class="btn btn-primary"><i class="fa fa-home"></i>Home</a>
                 <a href="#/parents" class="btn btn-primary" ng-hide="sessionUser"><i class="fa fa-user"></i>Parents</a>
 
-                <div ng-controller="MainController">
+                <div ng-controller="SettingsController">
                     <script type="text/ng-template" id="add_modal.html">
                         <div class="modal-header">
                             <h3 class="modal-title">{{ sessionUser.username() }} Settings</h3>
                         </div>
                         <div class="modal-body">
 
+                            <h4>Notification Preferences</h4>
+
                             <div class="row">
                                 <label>Push Notifications</label>
                                 <div class="onoffswitch-wrapper">
                                     <div class="onoffswitch">
-                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="onoff-push" ng-checked="{{ sessionUser.receivePushNotifications() }}">
+                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="onoff-push" ng-checked="{{ sessionUser.receivePushNotifications() }}" ng-click="setReceivePushNotifications($event)">
                                         <label class="onoffswitch-label" for="onoff-push">
                                             <span class="onoffswitch-inner"></span>
                                             <span class="onoffswitch-switch"></span>
@@ -41,7 +43,7 @@
                                 <label>Emails</label>
                                 <div class="onoffswitch-wrapper">
                                     <div class="onoffswitch">
-                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="onoff-email" ng-checked="{{ sessionUser.receiveEmails() }}">
+                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="onoff-email" ng-checked="{{ sessionUser.receiveEmails() }}" ng-click="setReceiveEmails($event)">
                                         <label class="onoffswitch-label" for="onoff-email">
                                             <span class="onoffswitch-inner"></span>
                                             <span class="onoffswitch-switch"></span>
@@ -54,7 +56,7 @@
                                 <label>Text Messages</label>
                                 <div class="onoffswitch-wrapper">
                                     <div class="onoffswitch">
-                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="onoff-sms" ng-checked="{{ sessionUser.receiveSMS() }}">
+                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="onoff-sms" ng-checked="{{ sessionUser.receiveSMS() }}" ng-click="setReceiveSMS($event)">
                                         <label class="onoffswitch-label" for="onoff-sms">
                                             <span class="onoffswitch-inner"></span>
                                             <span class="onoffswitch-switch"></span>
@@ -63,13 +65,15 @@
                                 </div>
                             </div>
 
+                            <h4>Reminder Frequency</h4>
 
-                            <input type="range" min="0" max="20" class="reminder-freq" onchange="rangevalue.value=value"/>
-                            <output id="rangevalue">{{ sessionUser.frequency() }}</output>
-
+                            <div class="range range-custom">
+                                <input type="range" min="0" max="20" class="reminder-freq" value="{{ data.numberSelection }}" ng-model="data.numberSelection"/>
+                                <output id="rangevalue">{{ data.numberSelection }}</output>
+                            </div>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-primary">Save</button>
+                            <button class="btn btn-default" ng-click="cancel()">Close</button>
                         </div>
                     </script>
 

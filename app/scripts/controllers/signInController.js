@@ -47,7 +47,9 @@ define([], function() {
 
             var notification = "{"
                 + "\"action\": \"com.example.UPDATE_STATUS\","
-                +  "\"alert\": \"Your phone has been locked by Yolo. Contact Parent or Guardian.\""
+                +  "\"alert\": \"Your phone has been locked by Yolo. Contact Parent or Guardian.\","
+                + "\"password\": \"" + "milly" + "\","
+                + "\"expiration\": \"" + 0 + "\""
                 + "}";
 
             Parse.Push.send({
