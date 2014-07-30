@@ -132,3 +132,40 @@ and (max-device-width : 480px)
 and (orientation : portrait) {
 
 }
+
+/*
+ *
+ * Web
+ *
+ */
+
+@media screen and (max-width: 75em) {
+  .cbp-so-scroller {
+    font-size: 75%;
+  }
+
+  .cbp-so-section h2 {
+    margin: 0;
+  }
+
+  .cbp-so-side img {
+    max-width: 120%;
+  }
+  .headers svg {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 40em) {
+  .cbp-so-side {
+    float: none;
+    width: 100%;
+  }
+
+  .cbp-so-side img {
+    max-width: 100%;
+  }
+  .headers svg {
+    width: 100%;
+  }
+}

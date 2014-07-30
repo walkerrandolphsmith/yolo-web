@@ -1,24 +1,6 @@
 @import "../scripts/_libs/bootstrap/dist/css/bootstrap.css";
-@import url(https://fonts.googleapis.com/css?family=Puritan:400,700|Ribeye|Acme|Monoton|Oswald);
+@import url(https://fonts.googleapis.com/css?family=Puritan:400,700|Oswald);
 @import url(https://fonts.googleapis.com/css?family=Dosis:200,600);
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Lato Light'), local('Lato-Light'), url(https://themes.googleusercontent.com/static/fonts/lato/v7/kcf5uOXucLcbFOydGU24WALUuEpTyoUstqEm5AMlJo4.woff) format('woff');
-}
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Lato Regular'), local('Lato-Regular'), url(https://themes.googleusercontent.com/static/fonts/lato/v7/qIIYRU-oROkIk8vfvxw6QvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
-}
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Lato Bold'), local('Lato-Bold'), url(https://themes.googleusercontent.com/static/fonts/lato/v7/qdgUG4U09HnJwhYI-uK18wLUuEpTyoUstqEm5AMlJo4.woff) format('woff');
-}
 /*************************************************************
 
       Utilities
@@ -40,14 +22,14 @@
       Sign In & Sign Up Forms
 
 **************************************************************/
-.alert {
-  margin: 60px auto 30px;
+.signup .alert {
+  margin: 2em auto -2em;
   width: 300px;
 }
-.alert span {
+.signup .alert span {
   display: inline;
 }
-.alert a {
+.signup .alert a {
   display: inline !important;
 }
 .signin a,
@@ -509,34 +491,6 @@ input[type="range"] {
   background-repeat: no-repeat;
   -webkit-appearance: none;
 }
-input[type='range']::-moz-range-thumb {
-  position: relative;
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
-  background-color: white;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5), 1px 3px 5px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
-  appearance: none;
-}
-input[type="range"]::-moz-range-thumb:before {
-  /* what creates the colorful line on the left side of the slider */
-  position: absolute;
-  top: 8px;
-  left: -2001px;
-  width: 2000px;
-  height: 4px;
-  background: #444444;
-  content: ' ';
-}
-input[type="range"]::-moz-range-thumb:after {
-  /* create a larger (but hidden) hit area */
-  position: absolute;
-  top: -20px;
-  left: -20px;
-  padding: 30px;
-  content: ' ';
-}
 input[type="range"]::-webkit-slider-thumb {
   position: relative;
   width: 20px;
@@ -565,6 +519,21 @@ input[type="range"]::-webkit-slider-thumb:after {
   padding: 30px;
   content: ' ';
 }
+.range.range-custom input::-webkit-slider-thumb:before {
+  background: #4575a4;
+}
+input[type='range']::-moz-range-thumb {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5), 1px 3px 5px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+input[type='range']::-moz-range-track {
+  background: linear-gradient(to right, #cccccc 0%, #cccccc 100%);
+}
 .range {
   display: -webkit-box;
   display: -webkit-flex;
@@ -578,66 +547,6 @@ input[type="range"]::-webkit-slider-thumb:after {
   -moz-align-items: center;
   align-items: center;
   padding: 2px 4px;
-}
-.range.range-custom input::-webkit-slider-thumb:before {
-  background: #4575a4;
-}
-.range.range-light input::-webkit-slider-thumb:before {
-  background: #dddddd;
-}
-.range.range-stable input::-webkit-slider-thumb:before {
-  background: #b2b2b2;
-}
-.range.range-positive input::-webkit-slider-thumb:before {
-  background: #4a87ee;
-}
-.range.range-calm input::-webkit-slider-thumb:before {
-  background: #43cee6;
-}
-.range.range-balanced input::-webkit-slider-thumb:before {
-  background: #66cc33;
-}
-.range.range-assertive input::-webkit-slider-thumb:before {
-  background: #ef4e3a;
-}
-.range.range-energized input::-webkit-slider-thumb:before {
-  background: #f0b840;
-}
-.range.range-royal input::-webkit-slider-thumb:before {
-  background: #8a6de9;
-}
-.range.range-dark input::-webkit-slider-thumb:before {
-  background: #444444;
-}
-.range.range-custom input::-moz-range-thumb:before {
-  background: #4575a4;
-}
-.range.range-light input::-moz-range-thumb:before {
-  background: #dddddd;
-}
-.range.range-stable input::-moz-range-thumb:before {
-  background: #b2b2b2;
-}
-.range.range-positive input::-moz-range-thumb:before {
-  background: #4a87ee;
-}
-.range.range-calm input::-moz-range-thumb:before {
-  background: #43cee6;
-}
-.range.range-balanced input::-moz-range-thumb:before {
-  background: #66cc33;
-}
-.range.range-assertive input::-moz-range-thumb:before {
-  background: #ef4e3a;
-}
-.range.range-energized input::-moz-range-thumb:before {
-  background: #f0b840;
-}
-.range.range-royal input::-moz-range-thumb:before {
-  background: #8a6de9;
-}
-.range.range-dark input::-moz-range-thumb:before {
-  background: #444444;
 }
 .range .icon {
   -webkit-box-flex: 0;
@@ -864,10 +773,10 @@ input[type="range"]::-webkit-slider-thumb:after {
   transition: transform 0.5s, opacity 0.5s;
 }
 .cbp-so-side h2 {
-  font-family: "Oswald" sans-serif;
+  font-family: "Oswald";
 }
 .cbp-so-side p {
-  font-family: 'Dosis', 'Lato', sans-serif;
+  font-family: 'Dosis';
 }
 /* Clear floats of children */
 .cbp-so-side:before,
@@ -908,27 +817,6 @@ input[type="range"]::-webkit-slider-thumb:after {
 	transition-delay: 0.2s;
 }
 */
-/* Example media queries */
-@media screen and (max-width: 73.5em) {
-  .cbp-so-scroller {
-    font-size: 65%;
-  }
-  .cbp-so-section h2 {
-    margin: 0;
-  }
-  .cbp-so-side img {
-    max-width: 120%;
-  }
-}
-@media screen and (max-width: 41.125em) {
-  .cbp-so-side {
-    float: none;
-    width: 100%;
-  }
-  .cbp-so-side img {
-    max-width: 100%;
-  }
-}
 /*************************************************************
 
       Services Role
@@ -1280,13 +1168,6 @@ input[type="range"]::-webkit-slider-thumb:after {
   margin: 1em;
   text-align: center;
 }
-@font-face {
-  font-family: 'LeagueGothic';
-  src: url("../fonts/league-gothic/league-gothic.eot");
-  src: url("../fonts/league-gothic/league-gothic.eot?#iefix") format("embedded-opentype"), url("../fonts/league-gothic/league-gothic.woff") format("woff"), url("../fonts/league-gothic/league-gothic.ttf") format("truetype"), url("../fonts/league-gothic/league-gothic.svg#League_Gothic-webfont") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
 #stage {
   background-color: #fff;
   width: 1024px;
@@ -1631,7 +1512,7 @@ footer {
 .hi-icon-wrap {
   text-align: center;
   margin: 0 auto;
-  padding: 2em 0 3em;
+  padding: 1em 0 1em;
 }
 .hi-icon {
   display: inline-block;
@@ -1742,11 +1623,6 @@ footer {
     opacity: 0;
   }
 }
-@media screen and (max-width: 1199px) {
-  .headers svg {
-    width: 60%;
-  }
-}
 body {
   background: #d8d8d8 url("//d36xtkk24g8jdx.cloudfront.net/bluebar/4ea466d/images/shared/noise-2.png");
   -webkit-font-smoothing: antialiased;
@@ -1825,8 +1701,8 @@ nav div {
   margin-top: -20px;
 }
 .headers p {
-  font-family: 'Dosis', 'Lato', sans-serif;
-  font-size: 26px;
+  font-family: 'Dosis';
+  font-size: 2em;
   text-align: center;
 }
 @-webkit-keyframes fill {
@@ -1977,7 +1853,7 @@ main {
 #sidebar .instructions-headers nav a {
   text-align: left;
   text-decoration: none;
-  font-family: 'Dosis', 'Lato', sans-serif;
+  font-family: 'Dosis';
   color: #000;
   cursor: pointer;
   width: 100%;
@@ -2007,11 +1883,11 @@ main {
   font-size: 4em;
 }
 .instructions h2 {
-  font-size: 2.5em;
+  font-size: 2em;
 }
 .instructions p,
 .instructions ol {
-  font-family: 'Dosis', 'Lato', sans-serif;
+  font-family: 'Dosis';
   font-size: 2em;
 }
 /*
@@ -2050,3 +1926,34 @@ main {
  * iPhone <5
  *
  */
+/*
+ *
+ * Web
+ *
+ */
+@media screen and (max-width: 75em) {
+  .cbp-so-scroller {
+    font-size: 75%;
+  }
+  .cbp-so-section h2 {
+    margin: 0;
+  }
+  .cbp-so-side img {
+    max-width: 120%;
+  }
+  .headers svg {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 40em) {
+  .cbp-so-side {
+    float: none;
+    width: 100%;
+  }
+  .cbp-so-side img {
+    max-width: 100%;
+  }
+  .headers svg {
+    width: 100%;
+  }
+}

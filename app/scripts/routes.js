@@ -35,6 +35,8 @@ define(['angular', 'app'], function(angular, app) {
 
             });
 
+            $rootScope.isApp = true;
+
             $rootScope.sessionUser = User.current();
 
             $rootScope.logOut = function(form) {

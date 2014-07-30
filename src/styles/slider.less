@@ -70,35 +70,8 @@ input[type="range"] {
   background-position: center;
   background-size: 99% 4px;
   background-repeat: no-repeat;
-  -webkit-appearance: none; }
-
-input[type='range']::-moz-range-thumb {
-  position: relative;
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
-  background-color: white;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5), 1px 3px 5px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
-  appearance: none;
+  -webkit-appearance: none;
 }
-input[type="range"]::-moz-range-thumb:before {
-  /* what creates the colorful line on the left side of the slider */
-  position: absolute;
-  top: 8px;
-  left: -2001px;
-  width: 2000px;
-  height: 4px;
-  background: #444444;
-  content: ' '; }
-input[type="range"]::-moz-range-thumb:after {
-  /* create a larger (but hidden) hit area */
-  position: absolute;
-  top: -20px;
-  left: -20px;
-  padding: 30px;
-  content: ' '; }
-
 
 input[type="range"]::-webkit-slider-thumb {
   position: relative;
@@ -108,7 +81,9 @@ input[type="range"]::-webkit-slider-thumb {
   background-color: white;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.5), 1px 3px 5px rgba(0, 0, 0, 0.25);
   cursor: pointer;
-  -webkit-appearance: none; }
+  -webkit-appearance: none;
+}
+
 input[type="range"]::-webkit-slider-thumb:before {
   /* what creates the colorful line on the left side of the slider */
   position: absolute;
@@ -117,14 +92,36 @@ input[type="range"]::-webkit-slider-thumb:before {
   width: 2000px;
   height: 4px;
   background: #444444;
-  content: ' '; }
+  content: ' ';
+}
+
 input[type="range"]::-webkit-slider-thumb:after {
   /* create a larger (but hidden) hit area */
   position: absolute;
   top: -20px;
   left: -20px;
   padding: 30px;
-  content: ' '; }
+  content: ' ';
+}
+
+.range.range-custom input::-webkit-slider-thumb:before {
+  background: @color;
+}
+
+input[type='range']::-moz-range-thumb {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5), 1px 3px 5px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+
+}
+
+input[type='range']::-moz-range-track {
+  background: linear-gradient(to right, #cccccc 0%, #cccccc 100%);
+}
 
 .range {
   display: -webkit-box;
@@ -138,48 +135,9 @@ input[type="range"]::-webkit-slider-thumb:after {
   -webkit-align-items: center;
   -moz-align-items: center;
   align-items: center;
-  padding: 2px 4px; }
-.range.range-custom input::-webkit-slider-thumb:before {
-  background: @color; }
-.range.range-light input::-webkit-slider-thumb:before {
-  background: #dddddd; }
-.range.range-stable input::-webkit-slider-thumb:before {
-  background: #b2b2b2; }
-.range.range-positive input::-webkit-slider-thumb:before {
-  background: #4a87ee; }
-.range.range-calm input::-webkit-slider-thumb:before {
-  background: #43cee6; }
-.range.range-balanced input::-webkit-slider-thumb:before {
-  background: #66cc33; }
-.range.range-assertive input::-webkit-slider-thumb:before {
-  background: #ef4e3a; }
-.range.range-energized input::-webkit-slider-thumb:before {
-  background: #f0b840; }
-.range.range-royal input::-webkit-slider-thumb:before {
-  background: #8a6de9; }
-.range.range-dark input::-webkit-slider-thumb:before {
-  background: #444444; }
+  padding: 2px 4px;
+}
 
-.range.range-custom input::-moz-range-thumb:before {
-  background: @color; }
-.range.range-light input::-moz-range-thumb:before {
-  background: #dddddd; }
-.range.range-stable input::-moz-range-thumb:before {
-  background: #b2b2b2; }
-.range.range-positive input::-moz-range-thumb:before {
-  background: #4a87ee; }
-.range.range-calm input::-moz-range-thumb:before {
-  background: #43cee6; }
-.range.range-balanced input::-moz-range-thumb:before {
-  background: #66cc33; }
-.range.range-assertive input::-moz-range-thumb:before {
-  background: #ef4e3a; }
-.range.range-energized input::-moz-range-thumb:before {
-  background: #f0b840; }
-.range.range-royal input::-moz-range-thumb:before {
-  background: #8a6de9; }
-.range.range-dark input::-moz-range-thumb:before {
-  background: #444444; }
 
 .range .icon {
   -webkit-box-flex: 0;
@@ -191,7 +149,8 @@ input[type="range"]::-webkit-slider-thumb:after {
   display: block;
   min-width: 24px;
   text-align: center;
-  font-size: 24px; }
+  font-size: 24px;
+}
 
 .range input {
   -webkit-box-flex: 1;
@@ -203,7 +162,8 @@ input[type="range"]::-webkit-slider-thumb:after {
   display: block;
   margin-right: 10px;
   margin-left: 10px;
-  width: 100%; }
+  width: 100%;
+}
 
 .range-label {
   -webkit-box-flex: 0;
@@ -213,11 +173,14 @@ input[type="range"]::-webkit-slider-thumb:after {
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
   display: block;
-  white-space: nowrap; }
+  white-space: nowrap;
+}
 
 .range-label:first-child {
-  padding-left: 5px; }
+  padding-left: 5px;
+}
 
 .range input + .range-label {
   padding-right: 5px;
-  padding-left: 0; }
+  padding-left: 0;
+}
