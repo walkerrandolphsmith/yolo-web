@@ -7,8 +7,9 @@ define(['jQuery', 'sticky'], function(jQuery, sticky) {
 
         $scope.do = function($event) {
             $event.preventDefault()
-            var hash = $event.srcElement.hash;
-            hash = hash.substr(1);
+
+            var hash = $event.target.getAttribute('href').substr(1);
+            console.log(hash);
             $location.hash(hash);
 
             $anchorScroll();

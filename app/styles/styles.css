@@ -1805,7 +1805,7 @@ nav div {
   cursor: pointer;
 }
 .hero h1 {
-  font-family: "Oswald" sans-serif;
+  font-family: "Oswald";
   font-size: 22vw;
   text-align: center;
   text-transform: uppercase;
@@ -1818,7 +1818,7 @@ nav div {
   text-align: center;
 }
 .headers h1 {
-  font-family: "Oswald" sans-serif;
+  font-family: "Oswald";
   font-size: 4em;
   text-align: center;
   text-transform: uppercase;
@@ -2001,7 +2001,7 @@ main {
 }
 .instructions h1,
 .instructions h2 {
-  font-family: "Oswald" sans-serif;
+  font-family: "Oswald";
 }
 .instructions h1 {
   font-size: 4em;
