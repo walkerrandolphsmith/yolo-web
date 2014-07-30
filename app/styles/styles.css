@@ -1969,7 +1969,7 @@ main {
   max-width: 220px;
 }
 #sidebar .instructions-headers {
-  background-color: #edeeef;
+  background-color: transparent;
 }
 #sidebar .instructions-headers nav {
   font-size: 2.5em;
@@ -1985,16 +1985,8 @@ main {
   padding: 10px;
   border-bottom: 0.07em solid rgba(0, 0, 0, 0.1);
 }
-#sidebar .instructions-headers nav a:last-child {
-  border-bottom: none;
-}
 #sidebar .instructions-headers nav a:hover {
-  background: #4575a4;
-  color: #ffffff;
-  border-bottom: 0.07em solid #ffffff;
-}
-#sidebar .instructions-headers nav a:hover:last-child {
-  border: none;
+  border-right: 0.07em solid #4575a4;
 }
 #sidebar.sticky {
   float: none;

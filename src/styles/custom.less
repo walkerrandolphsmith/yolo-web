@@ -261,7 +261,7 @@ main {
   max-width: 220px;
 
   .instructions-headers {
-    background-color: @grey;
+    background-color: transparent;
 
     nav {
       font-size: 2.5em;
@@ -277,17 +277,8 @@ main {
         border-bottom: .07em solid rgba(0,0,0,.1);
 
       }
-      a:last-child {
-        border-bottom: none;
-      }
       a:hover {
-        background: @color;
-        color: @white;
-        border-bottom: .07em solid rgba(255,255,255,1);
-
-      }
-      a:hover:last-child {
-        border: none;
+        border-right: .07em solid @color;
       }
     }
   }
