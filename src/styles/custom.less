@@ -55,6 +55,18 @@ nav {
   }
 }
 
+.btn-primary {
+  background-color: @color !important;
+  border-color: @lighter-color !important;
+}
+.btn-primary:hover {
+  background-color: @darker-color !important;
+}
+
+.dropdown-menu {
+  cursor: pointer;
+}
+
 .hero
 {
   h1 {
@@ -223,4 +235,91 @@ ol#facts > li:before {
 
   content: counter(li-counter);
   counter-increment: li-counter;
+}
+
+
+main {
+  margin: 20px auto;
+  max-width: 940px;
+}
+
+.onoffswitch-instructions {
+  margin: 1em 20%;
+  float: none;
+}
+
+.onoffswitch-instructions-inner:before {
+  content: "App";
+}
+
+.onoffswitch-instructions-inner:after {
+  content: "Web";
+}
+
+#sidebar {
+  float: left;
+  max-width: 220px;
+
+  .instructions-headers {
+    background-color: @grey;
+
+    nav {
+      font-size: 2.5em;
+      a {
+        text-align: left;
+        text-decoration: none;
+        font-family: 'Dosis', 'Lato', sans-serif;
+        color: #000;
+        cursor: pointer;
+        width: 100%;
+        display: block;
+        padding: 10px;
+        border-bottom: .07em solid rgba(0,0,0,.1);
+
+      }
+      a:last-child {
+        border-bottom: none;
+      }
+      a:hover {
+        background: @color;
+        color: @white;
+        border-bottom: .07em solid rgba(255,255,255,1);
+
+      }
+      a:hover:last-child {
+        border: none;
+      }
+    }
+  }
+}
+
+#sidebar.sticky {
+  float: none;
+  position: fixed;
+  top: 20px;
+  z-index: 6;
+  left: auto;
+}
+
+.instructions {
+
+  float: right;
+  max-width: 700px;
+
+  h1, h2 {
+    font-family: "Oswald" sans-serif;
+  }
+
+  h1 {
+    font-size: 4em;
+  }
+
+  h2 {
+    font-size: 2.5em;
+  }
+
+  p, ol {
+    font-family: 'Dosis', 'Lato', sans-serif;
+    font-size: 2em;
+  }
 }

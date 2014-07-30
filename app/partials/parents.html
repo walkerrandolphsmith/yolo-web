@@ -1,5 +1,6 @@
 <div class="container" ng-hide="sessionUser">
     <div class="signup" ng-hide="isNewMember">
+        <alert type="danger">Registering on the web requires pairing a physical device to receive push notifications.<a href="#instructions">Read here</a></alert>
         <form class="form-user form-signup clearfix">
             <p>
                 <input type="email" id="email" name="email" placeholder="Email" ng-model="user.email">

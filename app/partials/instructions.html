@@ -1,0 +1,118 @@
+<main class="clearfix" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+
+    <aside id="sidebar">
+
+        <div class="instructions-headers">
+            <nav>
+                <a href="#install" ng-click="do($event)">Installation</a>
+                <a href="#signup" ng-click="do($event)">Sign Up</a>
+                <a href="#signin" ng-click="do($event)">Sign In</a>
+                <a href="#add-child" ng-click="do($event)">Add Child</a>
+                <a href="#monitor-child" ng-click="do($event)">Monitor Child</a>
+                <a href="#settings" ng-click="do($event)">Settings</a>
+            </nav>
+        </div>
+
+        <div class="onoffswitch-wrapper onoffswitch-instructions">
+            <div class="onoffswitch">
+                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="android-web" ng-checked="isApp" ng-click="setInstructionType($event)">
+                <label class="onoffswitch-label" for="android-web">
+                    <span class="onoffswitch-inner onoffswitch-instructions-inner"></span>
+                    <span class="onoffswitch-switch"></span>
+                </label>
+            </div>
+        </div>
+
+    </aside>
+
+
+    <div class="instructions" id="content">
+
+        <!--**********************************************************************************************-->
+        <article id="install">
+            <h1>Installation</h1>
+
+            <h2>Individual Use</h2>
+            <p>The application can be used for personal use for those who wish to put texting while driving limits on themselves.</p>
+
+            <h2>Parental Use</h2>
+            <p>The application can be used by parents to enforce no texting while driving.</p>
+        </article>
+        <!--**********************************************************************************************-->
+        <article id="signup">
+            <h1>Sign Up</h1>
+
+            <p>Accounts are for parents to monitor their children's devices.</p>
+
+            <ol>
+                <li>Install application on phone.</li>
+                <li>Open application and select login.</li>
+                <li>Select Sign Up button.</li>
+                <li>Fill out form and select register button.</li>
+            </ol>
+        </article>
+        <!--**********************************************************************************************-->
+        <article id="signin">
+            <h1>Sign In</h1>
+
+            <p>Sign into your account to add and remove devices associated with children, change account settings, and monitor childrens' devices.</p>
+
+            <ol>
+                <li>Open Applications</li>
+                <li>Select Sign In button</li>
+                <li>Fill out form using username and password.</li>
+                <li>Select Sign In button.</li>
+            </ol>
+        </article>
+        <!--**********************************************************************************************-->
+        <article id="add-child">
+            <h1>Add Child</h1>
+
+            <p>Adding children allows the parent to receive notifications from the child.</p>
+
+            <ol>
+                <li>Sign In, on the child's device.</li>
+                <li>Select the phone icon on the menu.</li>
+                <li>Add a name associated with the child's device</li>
+                <li>Select add device button</li>
+                <li>Sign Out using the back arrow on the menu!</li>
+            </ol>
+        </article>
+        <!--**********************************************************************************************-->
+        <article id="monitor-child">
+            <h1>Monitor Children</h1>
+
+
+            <p>Monitoring children allows the parent to edit or delete children's devices associated with their account.
+                In addition the parent can remotely lock a child device with a password and expiration
+                ranging form 5 minutes to no expiration.</p>
+
+            <ol>
+                <li>Sign In</li>
+                <li>Swipe left on child</li>
+                <li>Select the lock icon </li>
+                <li>Fill out form with password and expiration.</li>
+                <li>Select lock button.</li>
+            </ol>
+        </article>
+        <!--**********************************************************************************************-->
+        <article id="settings">
+            <h1>Settings</h1>
+
+            <h2>Notification Prefrences</h2>
+            <p>Allows parents to determine which type of notifications they perfer to receive including email, text message, and push notifications.</p>
+
+            <h2>Reminder Frequency</h2>
+            <p>Allows the parent to determine the minimum amount of time that must elapse since the last message to receive another message.</p>
+
+            <h2>Account Settings</h2>
+            <p>Allows the parent to edit the password, phone number, and email associated with their account.</p>
+
+            <h2 ng-hide="isApp">Pair Device</h2>
+            <p ng-hide="isApp">Allows the parent associate a physical device whith their account in order to receive push notifications from children's devices.</p>
+
+        </article>
+        <!--**********************************************************************************************-->
+
+    </div>
+ </main>

@@ -14,7 +14,7 @@ define([], function() {
             user.set("password", form.password);
             user.set("phone", form.phone);
             user.set("receivePushNotifications", false);
-            user.set("receiveReceiveEmails", false);
+            user.set("receiveEmails", false);
             user.set("receiveSMS", false);
             user.set("frequency", 8640000);
             user.set("children", []);

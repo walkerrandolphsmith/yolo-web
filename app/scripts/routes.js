@@ -3,15 +3,19 @@
 define(['angular', 'app'], function(angular, app) {
 
     return app.config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/about', {
-            templateUrl: 'partials/about.html',
+        $routeProvider.when('/home', {
+            templateUrl: 'partials/home.html',
             controller: 'HomeController'
+        });
+        $routeProvider.when('/instructions', {
+            templateUrl: 'partials/instructions.html',
+            controller: 'InstructionsController'
         });
         $routeProvider.when('/parents', {
             templateUrl: 'partials/parents.html',
             controller: 'SignInController'
         });
-        $routeProvider.otherwise({redirectTo: '/about'});
+        $routeProvider.otherwise({redirectTo: '/home'});
     }])
         .run(function($rootScope){
             Parse.initialize("yG0OKddCMctN5vtCj5ocUbDxrRJjlPuzZLXMOXA9", "MgdbUbWiTaPbuZOp2N4rMsON7av9ITWvzSC0qiuV");
@@ -86,7 +90,7 @@ define(['angular', 'app'], function(angular, app) {
             }
 
             $rootScope.data = {};
-            $rootScope.data.numberSelection = $rootScope.sessionUser.frequency();
+            $rootScope.data.numberSelection = ($rootScope.sessionUser != null ? $rootScope.sessionUser.frequency() : 0);
 
         })
 });

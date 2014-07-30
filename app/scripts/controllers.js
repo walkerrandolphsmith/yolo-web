@@ -39,6 +39,11 @@ define(['angular', 'services'], function (angular) {
                 console.log('cancel');
             };
         })
+        .controller('InstructionsController', ['$scope', '$injector', function ($scope,  $injector) {
+            require(['controllers/instructionsController'], function(instructionsController) {
+                $injector.invoke(instructionsController, this, {'$scope': $scope});
+            });
+        }])
     // More involved example where controller is required from an external file
         .controller('SignInController', ['$scope', '$injector', function($scope, $injector) {
             require(['controllers/signInController'], function(signInController) {

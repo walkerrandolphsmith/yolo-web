@@ -5,7 +5,9 @@ require.config({
         angularMocks: '_libs/angular-mocks/angular-mocks',
         text: '_libs/requirejs-text/text',
         ui: '_libs/angular-bootstrap/ui-bootstrap',
-        tpls: '_libs/angular-bootstrap/ui-bootstrap-tpls.min'
+        tpls: '_libs/angular-bootstrap/ui-bootstrap-tpls.min',
+        jQuery: '_libs/jquery/jquery.min',
+        sticky: 'stickySidebar'
     },
     shim: {
         'angular' : {'exports' : 'angular'},
@@ -15,7 +17,8 @@ require.config({
             'exports':'angular.mock'
         },
         'ui':['angular'],
-        'tpls':['angular', 'ui']
+        'tpls':['angular', 'ui'],
+        'sticky': ['jQuery']
     },
     priority: [
         "angular"
