@@ -36,6 +36,7 @@
     <ul class="children-devices">
         <li class="row" data-ng-repeat="device in $parent.sessionUser.children()">
             <input type="text" name="childName" placeholder="{{device.name}}" ng-model="device.name">
+            <input type="text" name="childName" placeholder="{{device.password}}" ng-model="device.password">
                 <span>
                     <a class="btn btn-danger" ng-click="deleteChild($index)">
                         <i class="fa fa-trash-o fa-lg"></i> Delete
@@ -45,9 +46,30 @@
                          <i class="fa fa-edit fa-lg"></i> Save
                      </a>
 
-                      <a class="btn btn-primary" ng-click="lockChild(device.channel)">
-                          <i class="fa fa-lock fa-lg"></i> Lock
-                      </a>
+
+                    <div ng-controller="LockController" style="display:inline;">
+                        <script type="text/ng-template" id="lock_modal.html">
+                            <div class="modal-header">
+                                <h3 class="modal-title">Lock</h3>
+                            </div>
+                            <div class="modal-body">
+                                <h2>Expiration</h2>
+                                <div class="range range-custom">
+                                    <input type="range" min="0" max="20" class="reminder-freq" value="{{ $scope.exprs.expiration_reset }}" ng-model="exprs.expiration_reset"/>
+                                    <output id="rangevalue">{{ exprs.expiration_reset }}</output>
+                                </div>
+                                </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-default" ng-click="cancel()">Close</button>
+                                <button class="btn btn-primary" ng-click="lockChild($scope.index, $scope.channel)">Lock</button>
+                            </div>
+                        </script>
+                        <a class="btn btn-primary" ng-click="open(device.channel, $index)">
+                            <i class="fa fa-lock fa-lg"></i> Lock
+                        </a>
+                    </div>
+
+
                 </span>
         </li>
         <div class="or-spacer">

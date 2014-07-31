@@ -69,7 +69,7 @@
                             <h4>Reminder Frequency</h4>
 
                             <div class="range range-custom">
-                                <input type="range" min="0" max="20" class="reminder-freq" value="{{ data.numberSelection }}" ng-model="data.numberSelection"/>
+                                <input type="range" min="0" max="20" class="reminder-freq" value="{{ sessionUser.frequency() }}" ng-model="data.numberSelection"/>
                                 <output id="rangevalue">{{ data.numberSelection }}</output>
                             </div>
                         </div>

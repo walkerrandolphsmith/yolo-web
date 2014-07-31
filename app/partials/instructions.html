@@ -8,7 +8,7 @@
                 <a href="#signup" ng-click="do($event)">Sign Up</a>
                 <a href="#signin" ng-click="do($event)">Sign In</a>
                 <a href="#add-child" ng-click="do($event)">Add Child</a>
-                <a href="#monitor-child" ng-click="do($event)">Monitor Child</a>
+                <a href="#manage-child" ng-click="do($event)">Mange Child</a>
                 <a href="#settings" ng-click="do($event)">Settings</a>
             </nav>
         </div>
@@ -32,13 +32,7 @@
         <article id="install">
             <h1>Installation</h1>
 
-            <alert type="info">Find me on the Google Play Store.</alert>
-
-            <h2>Individual Use</h2>
-            <p>The application can be used for personal use for those who wish to put texting while driving limits on themselves.</p>
-
-            <h2>Parental Use</h2>
-            <p>The application can be used by parents to enforce no texting while driving.</p>
+            <p>The application can be used by parents to enforce no texting while driving. <a>Download</a> Yolo.</p>
         </article>
         <!--**********************************************************************************************-->
         <article id="signup">
@@ -47,15 +41,15 @@
             <p>Accounts are for parents to monitor their children's devices.</p>
 
             <ol>
-                <li ng-show="isApp">Install application on phone.</li>
-                <li ng-show="isApp">Open application and select login.</li>
-                <li ng-show="isApp">Select Sign Up button.</li>
+                <li ng-show="isApp">Install application on your phone.</li>
+                <li ng-show="isApp">Open application and select <strong>Sign In</strong> button.</li>
+                <li ng-show="isApp">Select <strong>Sign Up</strong> button.</li>
 
-                <li ng-hide="isApp">Navigate to <a href="yolosafely.com">website</a></li>
-                <li ng-hide="isApp">Select Parents button</li>
-                <li ng-hide="isApp">Select Sign Up button</li>
+                <li ng-hide="isApp">Navigate to <a href="yolosafely.com">website</a>.</li>
+                <li ng-hide="isApp">Select <strong>Parents</strong> button.</li>
+                <li ng-hide="isApp">Select <strong>Sign Up</strong> button.</li>
 
-                <li>Fill out form and select register button.</li>
+                <li>Fill out form and select <strong>Register</strong> button.</li>
             </ol>
 
             <alert type="danger" ng-hide="isApp">Parents registering from website must <a href="#settings" ng-click="do($event)">pair</a> their own physical device in order to receive push notifications from their children.</alert>
@@ -65,50 +59,49 @@
         <article id="signin">
             <h1>Sign In</h1>
 
-            <p>Sign into your account to add and remove devices associated with children, change account settings, and monitor childrens' devices.</p>
+            <p>Sign into your account to add and remove devices associated with children, change account settings, and monitor children's devices.</p>
 
             <ol>
                 <li ng-show="isApp">Open Application</li>
-                <li ng-show="isApp">Select Sign In button</li>
+                <li ng-show="isApp">Select <strong>Sign In</strong> button.</li>
 
                 <li ng-hide="isApp">Navigate to <a href="yolosafely.com">website</a></li>
-                <li ng-hide="isApp">Select Parents button</li>
+                <li ng-hide="isApp">Select <strong>Parents</strong> button.</li>
 
-                <li>Fill out form using username and password.</li>
-                <li>Select Sign In button.</li>
+                <li>Fill out form using <em>username</em> and <em>password</em>.</li>
+                <li>Select <strong>Sign In</strong> button.</li>
             </ol>
         </article>
         <!--**********************************************************************************************-->
         <article id="add-child">
             <h1>Add Child</h1>
 
-            <p>Adding children allows the parent to receive notifications from the child.</p>
+            <p>Add a child's device to your account to receive notifications from the child and enable remote locking of that device.</p>
 
             <ol ng-show="isApp">
-                <li>Sign In, on the child's device.</li>
+                <li><a href="#signin" ng-click="do($event)">Sign In</a>, on the child's device.</li>
                 <li>Select the phone icon on the menu.</li>
-                <li>Add a name associated with the child's device</li>
-                <li>Select add device button</li>
+                <li>Add a name associated with the child's device.</li>
+                <li>Select <strong>Add Device</strong> button.</li>
                 <li>Sign Out using the back arrow on the menu!</li>
             </ol>
 
-            <alert type="danger" ng-hide="isApp">Children must be added to the parent's account using the child's physical device. The website can only help parents monitor children they have already added.</alert>
+            <alert type="danger" ng-hide="isApp">Children must be added to the parent's account using the app on the child's physical device. The website can only help parents monitor children they have already added.</alert>
         </article>
         <!--**********************************************************************************************-->
-        <article id="monitor-child">
-            <h1>Monitor Children</h1>
+        <article id="manage-child">
+            <h1>Manage Children</h1>
 
 
-            <p>Monitoring children allows the parent to edit or delete children's devices associated with their account.
-                In addition the parent can remotely lock a child device with a password and expiration
-                ranging form 5 minutes to no expiration.</p>
+            <p>Managing children allows the parent to edit or delete children's devices associated with their account and
+                remotely lock a child device with a password and optional expiration.</p>
 
             <ol>
-                <li>Sign In</li>
-                <li>Swipe left on child</li>
-                <li>Select the lock icon </li>
-                <li>Fill out form with password and expiration.</li>
-                <li>Select lock button.</li>
+                <li><a href="#signin" ng-click="do($event)">Sign In</a>, on your device.</li>
+                <li>Swipe left on child.</li>
+                <li>Select the lock icon.</li>
+                <li>Fill out form with <em>password</em> and <em>expiration</em>.</li>
+                <li>Select <strong>Lock</strong> button.</li>
             </ol>
         </article>
         <!--**********************************************************************************************-->

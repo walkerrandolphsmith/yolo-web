@@ -43,28 +43,8 @@ define([], function() {
             });
         };
 
-        $scope.lockChild = function(channel) {
 
-            var notification = "{"
-                + "\"action\": \"com.example.UPDATE_STATUS\","
-                +  "\"alert\": \"Your phone has been locked by Yolo. Contact Parent or Guardian.\","
-                + "\"password\": \"" + "emily" + "\","
-                + "\"reset\": \"" + 0 + "\""
-                + "}";
 
-            Parse.Push.send({
-                channels: [channel],
-                data: notification
-
-            },{
-                success: function() {
-                    console.log("Child phone was locked.");
-                },
-                error: function(error){
-                    console.log("Child phone was NOT locked.");
-                }
-            });
-        };
 
         $scope.deleteChild = function(index){
             var children = $scope.$parent.sessionUser.get('children');

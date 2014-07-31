@@ -20,12 +20,71 @@ define(['angular', 'services'], function (angular) {
                 $injector.invoke(navigationController, this, {'$scope': $scope});
             });
         }])
+        .controller('LockController', ['$scope', '$injector', function ($scope,  $injector) {
+            require(['controllers/lockController'], function(lockController) {
+                $injector.invoke(lockController, this, {'$scope': $scope});
+            });
+        }])
+        .controller('LockModalController', function modalController ($scope, $modalInstance, items) {
+            $scope.items = items;
+            $scope.selected = {
+                item: $scope.items[0]
+            };
+            $scope.exprs = {};
+            $scope.exprs.expiration_reset = 0;
+            $scope.ok = function () {
+                $modalInstance.close($scope.selected.item);
+                console.log('ok');
+            };
+            $scope.cancel = function () {
+                $modalInstance.dismiss('cancel');
+                console.log('cancel');
+            };
+            $scope.lockChild = function() {
+
+                console.log($scope.exprs.expiration_reset);
+                var expiration = $scope.exprs.expiration_reset;
+                var channel = $scope.items[0];
+                var index = $scope.items[1];
+                var child = $scope.$parent.sessionUser.children()[index];
+
+                if(child.password.length > 0 && child.password.length < 10)
+                {
+                    console.log("Password was valid");
+                    delete child.$$hashKey
+
+                    var notification = "{"
+                        + "\"action\": \"com.example.UPDATE_STATUS\","
+                        +  "\"alert\": \"Your phone has been locked by Yolo. Contact Parent or Guardian.\","
+                        + "\"password\": \"" + child.password + "\","
+                        + "\"reset\": \"" + expiration + "\""
+                        + "}";
+
+                    Parse.Push.send({
+                        channels: [channel],
+                        data: notification
+
+                    },{
+                        success: function() {
+                            $scope.$parent.sessionUser.save();
+                            console.log("Child phone was locked.");
+                        },
+                        error: function(error){
+                            console.log("Child phone was NOT locked.");
+                        }
+                    });
+
+                }else{
+                    console.log("Locked Unsuccessful");
+                }
+            };
+        })
         .controller('SettingsController', ['$scope', '$injector', function ($scope,  $injector) {
             require(['controllers/settingsController'], function(settingsController) {
                 $injector.invoke(settingsController, this, {'$scope': $scope});
             });
         }])
-       .controller('ModalController', function modalController ($scope, $modalInstance, items) {
+        .controller('SettingsModalController', function modalController ($scope, $modalInstance, items) {
             $scope.items = items;
             $scope.selected = {
                 item: $scope.items[0]
