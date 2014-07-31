@@ -1,0 +1,75 @@
+main {
+  margin: 20px auto;
+  max-width: 940px;
+}
+
+#sidebar {
+  float: left;
+  max-width: 220px;
+
+  .instructions-headers {
+    background-color: transparent;
+
+    nav {
+      font-size: @sz-header-2-font;
+      a {
+        text-align: left;
+        text-decoration: none;
+        font-family: 'Dosis';
+        color: #000;
+        cursor: pointer;
+        width: 100%;
+        display: block;
+        padding: 10px;
+        border-bottom: .07em solid rgba(0,0,0,.1);
+
+      }
+      a:hover {
+        border-right: .07em solid @color;
+      }
+    }
+  }
+
+  .onoffswitch-wrapper {
+    margin: 1em 20%;
+    float: none;
+
+    .onoffswitch-inner:before {
+      content: "App";
+    }
+    .onoffswitch-inner:after {
+      content: "Web";
+    }
+  }
+}
+
+#sidebar.sticky {
+  float: none;
+  position: fixed;
+  top: 20px;
+  z-index: 6;
+  left: auto;
+}
+
+.instructions {
+
+  float: right;
+  max-width: 700px;
+
+  h1, h2 {
+    font-family: "Oswald";
+  }
+
+  h1 {
+    font-size: @sz-header-font;
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+
+  p, ol {
+    font-family: 'Dosis';
+    font-size: @sz-p-font;
+  }
+}

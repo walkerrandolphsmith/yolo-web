@@ -733,6 +733,7 @@ input[type='range']::-moz-range-track {
 
 **************************************************************/
 .cbp-so-scroller {
+  position: relative;
   margin-top: 3em;
   overflow: hidden;
 }
@@ -777,6 +778,10 @@ input[type='range']::-moz-range-track {
 }
 .cbp-so-side p {
   font-family: 'Dosis';
+}
+#cbp-so-slide-notify {
+  padding: 0;
+  margin-top: -4em !important;
 }
 /* Clear floats of children */
 .cbp-so-side:before,
@@ -938,6 +943,70 @@ footer {
     transform: scale(1.5);
     opacity: 0;
   }
+}
+main {
+  margin: 20px auto;
+  max-width: 940px;
+}
+#sidebar {
+  float: left;
+  max-width: 220px;
+}
+#sidebar .instructions-headers {
+  background-color: transparent;
+}
+#sidebar .instructions-headers nav {
+  font-size: 2.5em;
+}
+#sidebar .instructions-headers nav a {
+  text-align: left;
+  text-decoration: none;
+  font-family: 'Dosis';
+  color: #000;
+  cursor: pointer;
+  width: 100%;
+  display: block;
+  padding: 10px;
+  border-bottom: 0.07em solid rgba(0, 0, 0, 0.1);
+}
+#sidebar .instructions-headers nav a:hover {
+  border-right: 0.07em solid #4575a4;
+}
+#sidebar .onoffswitch-wrapper {
+  margin: 1em 20%;
+  float: none;
+}
+#sidebar .onoffswitch-wrapper .onoffswitch-inner:before {
+  content: "App";
+}
+#sidebar .onoffswitch-wrapper .onoffswitch-inner:after {
+  content: "Web";
+}
+#sidebar.sticky {
+  float: none;
+  position: fixed;
+  top: 20px;
+  z-index: 6;
+  left: auto;
+}
+.instructions {
+  float: right;
+  max-width: 700px;
+}
+.instructions h1,
+.instructions h2 {
+  font-family: "Oswald";
+}
+.instructions h1 {
+  font-size: 4em;
+}
+.instructions h2 {
+  font-size: 2em;
+}
+.instructions p,
+.instructions ol {
+  font-family: 'Dosis';
+  font-size: 2em;
 }
 body {
   background: #d8d8d8 url("//d36xtkk24g8jdx.cloudfront.net/bluebar/4ea466d/images/shared/noise-2.png");
@@ -1141,70 +1210,6 @@ ol#facts > li:before {
   color: #464646;
   content: counter(li-counter);
   counter-increment: li-counter;
-}
-main {
-  margin: 20px auto;
-  max-width: 940px;
-}
-.onoffswitch-instructions {
-  margin: 1em 20%;
-  float: none;
-}
-.onoffswitch-instructions-inner:before {
-  content: "App";
-}
-.onoffswitch-instructions-inner:after {
-  content: "Web";
-}
-#sidebar {
-  float: left;
-  max-width: 220px;
-}
-#sidebar .instructions-headers {
-  background-color: transparent;
-}
-#sidebar .instructions-headers nav {
-  font-size: 2.5em;
-}
-#sidebar .instructions-headers nav a {
-  text-align: left;
-  text-decoration: none;
-  font-family: 'Dosis';
-  color: #000;
-  cursor: pointer;
-  width: 100%;
-  display: block;
-  padding: 10px;
-  border-bottom: 0.07em solid rgba(0, 0, 0, 0.1);
-}
-#sidebar .instructions-headers nav a:hover {
-  border-right: 0.07em solid #4575a4;
-}
-#sidebar.sticky {
-  float: none;
-  position: fixed;
-  top: 20px;
-  z-index: 6;
-  left: auto;
-}
-.instructions {
-  float: right;
-  max-width: 700px;
-}
-.instructions h1,
-.instructions h2 {
-  font-family: "Oswald";
-}
-.instructions h1 {
-  font-size: 4em;
-}
-.instructions h2 {
-  font-size: 2em;
-}
-.instructions p,
-.instructions ol {
-  font-family: 'Dosis';
-  font-size: 2em;
 }
 /*
  *
