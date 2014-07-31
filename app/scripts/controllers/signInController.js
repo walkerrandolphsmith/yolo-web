@@ -48,20 +48,20 @@ define([], function() {
             var notification = "{"
                 + "\"action\": \"com.example.UPDATE_STATUS\","
                 +  "\"alert\": \"Your phone has been locked by Yolo. Contact Parent or Guardian.\","
-                + "\"password\": \"" + "milly" + "\","
-                + "\"expiration\": \"" + 0 + "\""
+                + "\"password\": \"" + "emily" + "\","
+                + "\"reset\": \"" + 0 + "\""
                 + "}";
 
             Parse.Push.send({
-               channels: [channel],
+                channels: [channel],
                 data: notification
 
             },{
                 success: function() {
-                    console.log("Success");
+                    console.log("Child phone was locked.");
                 },
                 error: function(error){
-
+                    console.log("Child phone was NOT locked.");
                 }
             });
         };
