@@ -69,8 +69,8 @@
                             <h4>Reminder Frequency</h4>
 
                             <div class="range range-custom">
-                                <input type="range" min="0" max="20" class="reminder-freq" value="{{ sessionUser.frequency() }}" ng-model="data.numberSelection"/>
-                                <output id="rangevalue">{{ data.numberSelection }}</output>
+                                <input type="range" min="0" max="20" class="reminder-freq" value="{{ sessionUser.frequency() }}" ng-change="setFrequency(data.numberSelection)" ng-model="data.numberSelection"/>
+                                <output id="rangevalue">{{ phrases[data.numberSelection] }}</output>
                             </div>
                         </div>
                         <div class="modal-footer">
