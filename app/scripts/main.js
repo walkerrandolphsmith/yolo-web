@@ -6,8 +6,14 @@ require.config({
         text: '_libs/requirejs-text/text',
         ui: '_libs/angular-bootstrap/ui-bootstrap',
         tpls: '_libs/angular-bootstrap/ui-bootstrap-tpls.min',
+        snapjs: "_libs/snapjs/snap",
+        angularSnap: '_libs/angular-snap/angular-snap',
+        //classie: '_libs/classie/classie',
+        ///scroller: '_libs/cbpScroller',
         jQuery: '_libs/jquery/jquery.min',
-        sticky: 'stickySidebar'
+        sticky: '_libs/stickySidebar',
+        modernizr: '_libs/modernizr',
+        parse: '_libs/parse'
     },
     shim: {
         'angular' : {'exports' : 'angular'},
@@ -18,7 +24,9 @@ require.config({
         },
         'ui':['angular'],
         'tpls':['angular', 'ui'],
+        'angularSnap': ['angular'],
         'sticky': ['jQuery']
+        //'scroller': ['classie']
     },
     priority: [
         "angular"

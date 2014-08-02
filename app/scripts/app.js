@@ -8,7 +8,13 @@ define([
     'controllers',
     'angularRoute',
     'ui',
-    'tpls'
+    'tpls',
+    'snapjs',
+    'angularSnap',
+    //'classie',
+    //'scroller',
+    'modernizr',
+    'parse'
 
 ], function (angular, filters, services, directives, controllers) {
 

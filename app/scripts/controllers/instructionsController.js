@@ -13,6 +13,7 @@ define(['jQuery', 'sticky'], function(jQuery, sticky) {
         $scope.setInstructionType = function($event) {
             var checkbox = $event.target;
             $scope.$parent.isApp = (checkbox.checked ? true : false);
+            console.log($scope.isApp);
         }
 
         $scope.$apply();
