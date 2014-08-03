@@ -1,7 +1,5 @@
-define(['jQuery', 'sticky'], function(jQuery, sticky) {
+define([], function() {
     return ['$scope', '$location', '$anchorScroll', function($scope, $location, $anchorScroll) {
-
-        $('#sidebar').stickySidebar();
 
         $scope.do = function($event) {
             $event.preventDefault()

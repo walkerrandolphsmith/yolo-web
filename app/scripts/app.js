@@ -9,6 +9,7 @@ define([
     'angularRoute',
     'ui',
     'tpls',
+    'jQuery',
     'snapjs',
     'angularSnap',
     'classie',

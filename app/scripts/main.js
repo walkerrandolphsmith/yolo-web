@@ -6,11 +6,10 @@ require.config({
         text: '_libs/requirejs-text/text',
         ui: '_libs/angular-bootstrap/ui-bootstrap',
         tpls: '_libs/angular-bootstrap/ui-bootstrap-tpls.min',
+        jQuery: '_libs/jquery/jquery',
+        classie: '_libs/classie/classie',
         snapjs: "_libs/snapjs/snap",
         angularSnap: '_libs/angular-snap/angular-snap',
-        classie: '_libs/classie/classie',
-        jQuery: '_libs/jquery/jquery.min',
-        sticky: '_libs/stickySidebar',
         modernizr: '_libs/modernizr',
         parse: '_libs/parse'
     },
@@ -23,8 +22,7 @@ require.config({
         },
         'ui':['angular'],
         'tpls':['angular', 'ui'],
-        'angularSnap': ['angular'],
-        'sticky': ['jQuery']
+        'angularSnap': ['angular']
     },
     priority: [
         "angular"
