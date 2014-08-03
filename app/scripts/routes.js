@@ -37,7 +37,6 @@ define(['angular', 'app'], function(angular, app) {
 
             $rootScope.sessionUser = User.current();
 
-
             $rootScope.milli = [ 90000, 180000, 360000, 360000*2, 360000*3, 360000*4, 360000*6, 360000*8, 360000*10, 4320000, 360000*15, 360000*18, 360000*20, 360000*21, 360000*22, 8640000, 8640000*2, 8640000*3, 8640000*5, 60480000, 0 ];
             $rootScope.phrases = [ "15 minutes", "30 minutes", "1 hour", "2 hours", "3 hours","4 hours", "6 hours","8 hours", "10 hours","12 hours", "15 hours","18 hours", "20 hours","21 hours", "22 hours", "Day", "2 Days", "3 Days", "5 Days", "Week", "Unlimited"];
 

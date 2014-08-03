@@ -16,7 +16,7 @@ define([], function() {
             user.set("receivePushNotifications", false);
             user.set("receiveEmails", false);
             user.set("receiveSMS", false);
-            user.set("frequency", 8640000);
+            user.set("frequency", 0);
             user.set("children", []);
 
             user.signUp(null, {
@@ -42,9 +42,6 @@ define([], function() {
                 }
             });
         };
-
-
-
 
         $scope.deleteChild = function(index){
             var children = $scope.$parent.sessionUser.get('children');
