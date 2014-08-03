@@ -69,13 +69,13 @@ define(['angular', 'services', 'classie'], function(angular, services, classie) 
                 return a;
             }
 
-            function cbpScroller( el, options ) {
+            function scroller( el, options ) {
                 this.el = el;
                 this.options = extend( this.defaults, options );
                 this._init();
             }
 
-            cbpScroller.prototype = {
+            scroller.prototype = {
                 defaults : {
                     // The viewportFactor defines how much of the appearing item has to be visible in order to trigger the animation
                     // if we'd use a value of 0, this would mean that it would add the animation class as soon as the item is in the viewport.
@@ -135,10 +135,10 @@ define(['angular', 'services', 'classie'], function(angular, services, classie) 
             }
 
             // add to global namespace
-            $window.cbpScroller = cbpScroller;
+            $window.scroller = scroller;
 
             var linker = function(scope, elm, attrs) {
-                new cbpScroller(elm[0]);
+                new scroller(elm[0]);
             };
 
             return {

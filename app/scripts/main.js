@@ -9,7 +9,6 @@ require.config({
         snapjs: "_libs/snapjs/snap",
         angularSnap: '_libs/angular-snap/angular-snap',
         classie: '_libs/classie/classie',
-        ///scroller: '_libs/cbpScroller',
         jQuery: '_libs/jquery/jquery.min',
         sticky: '_libs/stickySidebar',
         modernizr: '_libs/modernizr',
@@ -26,7 +25,6 @@ require.config({
         'tpls':['angular', 'ui'],
         'angularSnap': ['angular'],
         'sticky': ['jQuery']
-        //'scroller': ['classie']
     },
     priority: [
         "angular"

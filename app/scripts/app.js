@@ -12,7 +12,6 @@ define([
     'snapjs',
     'angularSnap',
     'classie',
-    //'scroller',
     'modernizr',
     'parse'
 
