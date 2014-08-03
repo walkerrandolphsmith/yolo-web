@@ -12,6 +12,9 @@ define(['angular', 'services', 'classie'], function(angular, services, classie) 
         }])
         .directive('scroller', ['$window', function($window) {
 
+            console.log($window);
+            console.log(classie);
+
             var docElem = $window.document.documentElement;
 
             function getViewportH() {
@@ -134,9 +137,6 @@ define(['angular', 'services', 'classie'], function(angular, services, classie) 
                 }
             }
 
-            // add to global namespace
-            $window.scroller = scroller;
-
             var linker = function(scope, elm, attrs) {
                 new scroller(elm[0]);
             };
@@ -157,8 +157,7 @@ define(['angular', 'services', 'classie'], function(angular, services, classie) 
                 footerThreshold: 40
             });
 
-            var fixSidebr = function () {
-
+            var stickSidebar = function () {
                 var sidebarSelector = $(this);
                 var viewportHeight = $(window).height();
                 var viewportWidth = $(window).width();
@@ -195,8 +194,8 @@ define(['angular', 'services', 'classie'], function(angular, services, classie) 
             };
 
             var linker = function(scope, elm, attrs) {
-                $window.addEventListener( 'scroll', $.proxy(fixSidebr, elm[0]), false );
-                $window.addEventListener( 'resize', $.proxy(fixSidebr, elm[0]), false );
+                $window.addEventListener( 'scroll', $.proxy(stickSidebar, elm[0]), false );
+                $window.addEventListener( 'resize', $.proxy(stickSidebar, elm[0]), false );
             };
 
             return {

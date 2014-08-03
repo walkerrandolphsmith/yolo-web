@@ -10,7 +10,7 @@ require.config({
         classie: '_libs/classie/classie',
         snapjs: "_libs/snapjs/snap",
         angularSnap: '_libs/angular-snap/angular-snap',
-        modernizr: '_libs/modernizr',
+        modernizr: '_libs/modernizr/modernizr',
         parse: '_libs/parse'
     },
     shim: {

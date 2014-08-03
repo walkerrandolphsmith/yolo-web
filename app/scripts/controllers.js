@@ -15,11 +15,6 @@ define(['angular', 'services'], function (angular) {
                 $injector.invoke(homeController, this, {'$scope': $scope});
             });
         }])
-        .controller('NavigationController', ['$scope', '$injector', function ($scope,  $injector) {
-            require(['controllers/navigationController'], function(navigationController) {
-                $injector.invoke(navigationController, this, {'$scope': $scope});
-            });
-        }])
         .controller('LockController', ['$scope', '$injector', function ($scope,  $injector) {
             require(['controllers/lockController'], function(lockController) {
                 $injector.invoke(lockController, this, {'$scope': $scope});
@@ -50,7 +45,7 @@ define(['angular', 'services'], function (angular) {
 
                 if(child.password.length > 0 && child.password.length < 10)
                 {
-                    console.log("Password was valid");
+                    console.log("Password was valid...");
                     delete child.$$hashKey
 
                     var notification = "{"
@@ -75,7 +70,7 @@ define(['angular', 'services'], function (angular) {
                     });
 
                 }else{
-                    console.log("Locked Unsuccessful");
+                    console.log("Unable to lock device.");
                 }
             };
         })
@@ -84,18 +79,54 @@ define(['angular', 'services'], function (angular) {
                 $injector.invoke(settingsController, this, {'$scope': $scope});
             });
         }])
-        .controller('SettingsModalController', function modalController ($scope, $modalInstance, items) {
-            $scope.items = items;
-            $scope.selected = {
-                item: $scope.items[0]
-            };
-            $scope.ok = function () {
-                $modalInstance.close($scope.selected.item);
-                console.log('ok');
-            };
+        .controller('SettingsModalController', function modalController ($scope, $modalInstance) {
+
+            $scope.setReceivePushNotifications = function($event){
+                var checkbox = $event.target;
+                var result = (checkbox.checked ? true : false);
+                $scope.$parent.sessionUser.set('receivePushNotifications', result);
+                $scope.$parent.sessionUser.save(null, {
+                    success: function(){
+                        console.log("Updated Receive Push Notifications to: " + result);
+                    }
+                });
+            }
+
+            $scope.setReceiveEmails = function($event){
+                var checkbox = $event.target;
+                var result = (checkbox.checked ? true : false);
+                $scope.$parent.sessionUser.set('receiveEmails', result);
+                $scope.$parent.sessionUser.save(null, {
+                    success: function(){
+                        console.log("Updated Receive Emails to: " + result);
+                    }
+                });
+            }
+
+            $scope.setReceiveSMS = function($event){
+                var checkbox = $event.target;
+                var result = (checkbox.checked ? true : false);
+                $scope.$parent.sessionUser.set('receiveSMS', result);
+                $scope.$parent.sessionUser.save(null, {
+                    success: function(){
+                        console.log("Updated Receive SMS to: " + result);
+                    }
+                });
+            }
+
+            $scope.setFrequency = function(value){
+                value = parseInt(value);
+                $scope.$parent.sessionUser.set('frequency', value);
+                $scope.$parent.sessionUser.save(null, {
+                    success: function() {
+                        console.log("Updated Reminder Frequency.");
+                    }
+                });
+            }
+
             $scope.cancel = function () {
                 $modalInstance.dismiss('cancel');
-                console.log('cancel');
+                console.log('Settings Modal dismissed');
             };
         })
         .controller('InstructionsController', ['$scope', '$injector', function ($scope,  $injector) {

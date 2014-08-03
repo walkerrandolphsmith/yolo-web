@@ -12,5 +12,11 @@
     "requirejs-text": "~2.0.10",
     "bootstrap": "~3.2.0",
     "font-awesome": "~4.1.0"
+  },
+  "devDependencies": {
+    "modernizr": "~2.8.3",
+    "classie": "~1.0.1",
+    "snapjs": "~1.9.3",
+    "angular-snap": "~1.5.4"
   }
 }
