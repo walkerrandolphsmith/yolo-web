@@ -11,7 +11,7 @@ define([
     'tpls',
     'snapjs',
     'angularSnap',
-    //'classie',
+    'classie',
     //'scroller',
     'modernizr',
     'parse'

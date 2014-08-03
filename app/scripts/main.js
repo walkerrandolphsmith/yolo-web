@@ -8,7 +8,7 @@ require.config({
         tpls: '_libs/angular-bootstrap/ui-bootstrap-tpls.min',
         snapjs: "_libs/snapjs/snap",
         angularSnap: '_libs/angular-snap/angular-snap',
-        //classie: '_libs/classie/classie',
+        classie: '_libs/classie/classie',
         ///scroller: '_libs/cbpScroller',
         jQuery: '_libs/jquery/jquery.min',
         sticky: '_libs/stickySidebar',
