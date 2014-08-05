@@ -45,6 +45,7 @@ body {
   transition: all 1.0s ease;
 }
 
+
 nav {
   text-align: center;
   list-style: none;
@@ -54,6 +55,33 @@ nav {
     display: inline;
   }
 }
+
+
+/*
+
+nav {
+  font-size: @sz-header-2-font;
+  a {
+    text-align: left;
+    text-decoration: none;
+    font-family: 'Dosis';
+    color: #000;
+    cursor: pointer;
+    width: 100%;
+    display: block;
+    padding: 10px;
+    border-bottom: .07em solid rgba(0,0,0,.1);
+
+  }
+  a:hover {
+    border-right: .07em solid @color;
+  }
+}
+*/
+
+
+
+
 
 .btn-primary {
   background-color: @color !important;
@@ -235,4 +263,15 @@ ol#facts > li:before {
 
   content: counter(li-counter);
   counter-increment: li-counter;
+}
+
+.scrollable{
+  overflow: auto;
+  -webkit-transition-property: top, bottom;
+  transition-property: top, bottom;
+  -webkit-transition-duration: .2s, .2s;
+  transition-duration: .2s, .2s;
+  -webkit-transition-timing-function: linear, linear;
+  transition-timing-function: linear, linear;
+  -webkit-overflow-scrolling: touch;
 }

@@ -12,10 +12,8 @@ define(['angular', 'services', 'classie'], function(angular, services, classie) 
         }])
         .directive('scroller', ['$window', function($window) {
 
-            console.log($window);
-            console.log(classie);
-
             var docElem = $window.document.documentElement;
+            console.log(docElem);
 
             function getViewportH() {
                 var client = docElem['clientHeight'],
@@ -80,9 +78,6 @@ define(['angular', 'services', 'classie'], function(angular, services, classie) 
 
             scroller.prototype = {
                 defaults : {
-                    // The viewportFactor defines how much of the appearing item has to be visible in order to trigger the animation
-                    // if we'd use a value of 0, this would mean that it would add the animation class as soon as the item is in the viewport.
-                    // If we were to use the value of 1, the animation would only be triggered when we see all of the item in the viewport (100% of it)
                     viewportFactor : 0.2
                 },
                 _init : function() {
@@ -126,10 +121,8 @@ define(['angular', 'services', 'classie'], function(angular, services, classie) 
                             classie.add( el, 'cbp-so-animate' );
                         }
                         else {
-                            // this add class init if it doesn't have it.
-                            // This will ensure that the items initially in the viewport will also animate on scroll
+                            // items initially in the viewport will also animate on scroll
                             classie.add( el, 'cbp-so-init' );
-
                             classie.remove( el, 'cbp-so-animate' );
                         }
                     });
@@ -158,6 +151,7 @@ define(['angular', 'services', 'classie'], function(angular, services, classie) 
             });
 
             var stickSidebar = function () {
+
                 var sidebarSelector = $(this);
                 var viewportHeight = $(window).height();
                 var viewportWidth = $(window).width();
@@ -174,7 +168,7 @@ define(['angular', 'services', 'classie'], function(angular, services, classie) 
 
                 // calculate
                 if ((contentHeight > sidebarHeight) && (viewportHeight > sidebarHeight)) {
-
+                    console.log("SidebarH is less than #contentH and windowH");
                     if (scroll_top < breakingPoint1) {
 
                         sidebarSelector.removeClass('sticky');

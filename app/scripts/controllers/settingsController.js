@@ -12,6 +12,8 @@ define([], function() {
             modalInstance.result.then(function (response) {
                 $scope.selected = response;
                 console.log(response);
+
+
             }, function () {
                 console.log('Modal dismissed at: ' + new Date());
             });

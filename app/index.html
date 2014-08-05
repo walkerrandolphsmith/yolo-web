@@ -9,10 +9,20 @@
 
 <body>
     <div class="appHost container">
+
+        <!--<snap-drawer>-->
         <div class="row">
             <nav>
                 <a href="#/home" class="btn btn-primary"><i class="fa fa-home"></i>Home</a>
                 <a href="#/instructions" class="btn btn-primary"><i class="fa fa-book"></i>Docs</a>
+                <!--
+                <a href="#install" ng-click="do($event)">Installation</a>
+                <a href="#signup" ng-click="do($event)">Sign Up</a>
+                <a href="#signin" ng-click="do($event)">Sign In</a>
+                <a href="#add-child" ng-click="do($event)">Add Child</a>
+                <a href="#manage-child" ng-click="do($event)">Mange Child</a>
+                <a href="#settings" ng-click="do($event)">Settings</a>
+                -->
                 <a href="#/parents" class="btn btn-primary" ng-hide="sessionUser"><i class="fa fa-user"></i>Parents</a>
 
                 <div ng-controller="SettingsController">
@@ -91,13 +101,19 @@
 
             </nav>
         </div>
+        <!--</snap-drawer>-->
 
-
-        <div class="container">
-            <div ng-view class="row"></div>
-        </div>
+        <!--<snap-content snap-options="snapOpts" class="appHost">-->
+            <!--<i class="fa fa-bars" snap-toggle></i>-->
+            <div class="container">
+                 <div ng-view class="row"></div>
+            </div>
+        <!--</snap-content>-->
 
     </div>
+
+
+
     <script src="scripts/_libs/requirejs/require.js" data-main="scripts/main"></script>
 </body>
 </html>
