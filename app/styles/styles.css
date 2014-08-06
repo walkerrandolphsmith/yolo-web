@@ -1120,6 +1120,9 @@ main {
 .snapjs-left #content {
   max-width: 100% !important;
 }
+html {
+  overflow-x: hidden;
+}
 body {
   -webkit-font-smoothing: antialiased;
 }
