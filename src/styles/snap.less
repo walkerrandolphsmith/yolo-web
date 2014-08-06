@@ -17,6 +17,7 @@ snap-drawers,
 .snap-content {
   position: absolute;
   height: auto;
+  min-height: 100vh;
   top: 0;
   width: auto;
   left: 0;
@@ -31,13 +32,13 @@ snap-drawers,
 .snap-drawers,
 .x-snap-drawers,
 .snap-drawers {
-    position: absolute;
-    height: auto;
-    top: 0;
-    bottom: 0;
-    width: auto;
-    left: 0;
-    right: 0;
+  position: fixed;
+  height: auto;
+  top: 0;
+  bottom: 0;
+  width: auto;
+  left: 0;
+  right: 0;
 }
 
 snap-drawer,
@@ -94,4 +95,21 @@ snap-drawer,
 .snapjs-expand-left .snap-drawer-left,
 .snapjs-expand-right .snap-drawer-right {
   width: 100%;
+}
+
+.scrollable{
+  overflow: auto;
+  -webkit-transition-property: top, bottom;
+  transition-property: top, bottom;
+  -webkit-transition-duration: .2s, .2s;
+  transition-duration: .2s, .2s;
+  -webkit-transition-timing-function: linear, linear;
+  transition-timing-function: linear, linear;
+  -webkit-overflow-scrolling: touch;
+}
+
+.fa.fa-bars {
+  padding: 0;
+  position: absolute;
+  font-size: 5em;
 }

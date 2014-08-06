@@ -17,7 +17,7 @@ define(['angular', 'app'], function(angular, app) {
         });
         $routeProvider.otherwise({redirectTo: '/home'});
     }])
-        .run(function($rootScope, YoloUser){
+        .run(function($rootScope, $location, $anchorScroll, $modal, YoloUser){
             Parse.initialize("yG0OKddCMctN5vtCj5ocUbDxrRJjlPuzZLXMOXA9", "MgdbUbWiTaPbuZOp2N4rMsON7av9ITWvzSC0qiuV");
             $rootScope.sessionUser = Parse.User.current();
 
@@ -27,6 +27,53 @@ define(['angular', 'app'], function(angular, app) {
             $rootScope.isApp = true;
             $rootScope.data = {};
             $rootScope.data.numberSelection = ($rootScope.sessionUser != null ? $rootScope.sessionUser.frequency() : 0);
+
+
+            $rootScope.snapOpts = {
+                disable: 'right'
+            };
+
+            $rootScope.disable = function(side) {
+                $scope.snapOpts.disable = side;
+            };
+
+            $rootScope.enable = function() {
+                $scope.snapOpts.disable = 'none';
+            };
+
+            $rootScope.isDocs = function() {
+                return ($location.path() == "/instructions"? true : false);
+            }
+
+            $rootScope.do = function($event) {
+                $event.preventDefault()
+                var hash = $event.target.getAttribute('href').substr(1);
+                $location.hash(hash);
+                $anchorScroll();
+            };
+
+            $rootScope.setInstructionType = function($event) {
+                var checkbox = $event.target;
+                $rootScope.isApp = (checkbox.checked ? true : false);
+            }
+
+            $rootScope.open = function () {
+                var modalInstance = $modal.open({
+                    templateUrl: 'add_modal.html',
+                    controller: 'SettingsModalController',
+                    resolve: {
+
+                    }
+                });
+                modalInstance.result.then(function (response) {
+                    $rootScope.selected = response;
+                    console.log(response);
+
+
+                }, function () {
+                    console.log('Modal dismissed at: ' + new Date());
+                });
+            };
 
             $rootScope.logOut = function(form) {
                 Parse.User.logOut();

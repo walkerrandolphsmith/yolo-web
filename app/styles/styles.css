@@ -1,6 +1,116 @@
 @import "../scripts/_libs/bootstrap/dist/css/bootstrap.css";
 @import url(https://fonts.googleapis.com/css?family=Puritan:400,700|Oswald);
 @import url(https://fonts.googleapis.com/css?family=Dosis:200,600);
+snap-content,
+[snap\:content],
+[snap-content],
+[data-snap-content],
+[x-snap-content],
+.snap-content,
+.x-snap-content,
+snap-drawers,
+[snap\:drawers],
+[snap-drawers],
+[data-snap-drawers],
+[x-snap-drawers],
+.snap-drawers,
+.x-snap-drawers,
+.snap-drawers,
+.snap-content {
+  position: absolute;
+  height: auto;
+  min-height: 100vh;
+  top: 0;
+  width: auto;
+  left: 0;
+  right: 0;
+}
+snap-drawers,
+[snap\:drawers],
+[snap-drawers],
+[data-snap-drawers],
+[x-snap-drawers],
+.snap-drawers,
+.x-snap-drawers,
+.snap-drawers {
+  position: fixed;
+  height: auto;
+  top: 0;
+  bottom: 0;
+  width: auto;
+  left: 0;
+  right: 0;
+}
+snap-drawer,
+[snap\:drawer],
+[snap-drawer],
+[data-snap-drawer],
+[x-snap-drawer],
+.snap-drawer,
+.x-snap-drawer,
+.snap-drawer {
+  position: absolute;
+  height: auto;
+  top: 0;
+  bottom: 0;
+  overflow: auto;
+  -webkit-transition: top 0.2s linear;
+  -moz-transition: top 0.2s linear;
+  -o-transition: top 0.2s linear;
+  transition: top 0.2s linear;
+  -webkit-transition: bottom 0.2s linear;
+  -moz-transition: bottom 0.2s linear;
+  -o-transition: bottom 0.2s linear;
+  transition: bottom 0.2s linear;
+  -webkit-overflow-scrolling: touch;
+  -moz-overflow-scrolling: touch;
+  -o-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+  width: 265px;
+}
+.snap-content {
+  z-index: 2;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  -moz-overflow-scrolling: touch;
+  -o-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+}
+.snap-drawer-left {
+  left: 0;
+  z-index: 1;
+}
+.snap-drawer-right {
+  right: 0;
+  z-index: 1;
+}
+.snapjs-left .snap-drawer-right,
+.snapjs-right .snap-drawer-left {
+  display: none;
+}
+.snapjs-expand-left .snap-drawer-left,
+.snapjs-expand-right .snap-drawer-right {
+  width: 100%;
+}
+.scrollable {
+  overflow: auto;
+  -webkit-transition-property: top, bottom;
+  transition-property: top, bottom;
+  -webkit-transition-duration: .2s, .2s;
+  transition-duration: .2s, .2s;
+  -webkit-transition-timing-function: linear, linear;
+  transition-timing-function: linear, linear;
+  -webkit-overflow-scrolling: touch;
+}
+.fa.fa-bars {
+  padding: 0;
+  position: absolute;
+  font-size: 5em;
+}
 /*************************************************************
 
       Utilities
@@ -419,6 +529,16 @@
 .onoffswitch-wrapper {
   float: right;
 }
+.onoffswitch-wrapper.instructionType {
+  margin: 1em 20%;
+  float: none;
+}
+.onoffswitch-wrapper.instructionType .onoffswitch-inner:before {
+  content: "App";
+}
+.onoffswitch-wrapper.instructionType .onoffswitch-inner:after {
+  content: "Web";
+}
 /*
 input[type="range"]{
   margin-top: 35px;
@@ -734,6 +854,7 @@ input[type='range']::-moz-range-track {
 **************************************************************/
 .cbp-so-scroller {
   position: relative;
+  z-index: 5 !important;
   margin-top: 3em;
   overflow: hidden;
 }
@@ -949,6 +1070,8 @@ main {
   max-width: 940px;
 }
 #sidebar {
+  position: fixed;
+  top: 3.5em;
   float: left;
   max-width: 220px;
 }
@@ -971,16 +1094,6 @@ main {
 }
 #sidebar .instructions-headers nav a:hover {
   border-right: 0.07em solid #4575a4;
-}
-#sidebar .onoffswitch-wrapper {
-  margin: 1em 20%;
-  float: none;
-}
-#sidebar .onoffswitch-wrapper .onoffswitch-inner:before {
-  content: "App";
-}
-#sidebar .onoffswitch-wrapper .onoffswitch-inner:after {
-  content: "Web";
 }
 #sidebar.sticky {
   float: none;
@@ -1009,7 +1122,6 @@ main {
   font-size: 2em;
 }
 body {
-  background: #d8d8d8 url("//d36xtkk24g8jdx.cloudfront.net/bluebar/4ea466d/images/shared/noise-2.png");
   -webkit-font-smoothing: antialiased;
 }
 .row {
@@ -1018,6 +1130,7 @@ body {
   margin-left: 0;
 }
 .container {
+  padding-top: 1.5em;
   padding-right: 0;
   padding-left: 0;
 }
@@ -1037,45 +1150,43 @@ body {
   text-align: center;
   text-transform: uppercase;
 }
-.appHost {
+.snap-content {
+  z-index: 55;
   background: #ffffff url("//d36xtkk24g8jdx.cloudfront.net/bluebar/4ea466d/images/shared/noise-2.png");
-  padding-left: 0 !important;
-  padding-right: 0 !important;
   box-shadow: 0 0 8px black;
-  width: 100%;
-  min-height: 100vh;
-  height: auto;
   transition: all 1.0s ease;
 }
 nav {
-  text-align: center;
-  list-style: none;
-  font-size: 36pt;
+  font-size: 2.5em;
 }
-nav div {
-  display: inline;
+nav a {
+  text-align: left;
+  text-decoration: none;
+  font-family: 'Dosis';
+  color: #000;
+  cursor: pointer;
+  width: 100%;
+  display: block;
+  padding: 10px;
+  border-bottom: 0.07em solid rgba(0, 0, 0, 0.1);
 }
-/*
-
-nav {
-  font-size: @sz-header-2-font;
-  a {
-    text-align: left;
-    text-decoration: none;
-    font-family: 'Dosis';
-    color: #000;
-    cursor: pointer;
-    width: 100%;
-    display: block;
-    padding: 10px;
-    border-bottom: .07em solid rgba(0,0,0,.1);
-
-  }
-  a:hover {
-    border-right: .07em solid @color;
-  }
+nav a:hover {
+  text-decoration: none;
+  font-weight: 2em;
+  color: #4575a4;
+  border-right: 0.07em solid #4575a4;
 }
-*/
+nav .instruction-links {
+  text-indent: 1em;
+}
+nav .instructionType {
+  display: block;
+  float: none !important;
+  margin: 0 !important;
+  padding: .5em;
+  padding-left: 1em;
+  border-bottom: 0.07em solid rgba(0, 0, 0, 0.1);
+}
 .btn-primary {
   background-color: #4575a4 !important;
   border-color: #a8b9da !important;
@@ -1083,12 +1194,12 @@ nav {
 .btn-primary:hover {
   background-color: #27425c !important;
 }
-.dropdown-menu {
-  cursor: pointer;
-}
 .hero h1 {
   font-family: "Oswald";
   font-size: 22vw;
+  padding: 0;
+  margin: 0;
+  margin-top: -0.1em;
   text-align: center;
   text-transform: uppercase;
   pointer-events: none;
@@ -1232,16 +1343,6 @@ ol#facts > li:before {
   content: counter(li-counter);
   counter-increment: li-counter;
 }
-.scrollable {
-  overflow: auto;
-  -webkit-transition-property: top, bottom;
-  transition-property: top, bottom;
-  -webkit-transition-duration: .2s, .2s;
-  transition-duration: .2s, .2s;
-  -webkit-transition-timing-function: linear, linear;
-  transition-timing-function: linear, linear;
-  -webkit-overflow-scrolling: touch;
-}
 /*
  *
  * iPad 3+
@@ -1307,5 +1408,10 @@ ol#facts > li:before {
   }
   .headers svg {
     width: 100%;
+  }
+}
+@media screen and (max-width: 991px) {
+  #sidebar {
+    display: none;
   }
 }

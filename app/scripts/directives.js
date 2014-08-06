@@ -13,7 +13,6 @@ define(['angular', 'services', 'classie'], function(angular, services, classie) 
         .directive('scroller', ['$window', function($window) {
 
             var docElem = $window.document.documentElement;
-            console.log(docElem);
 
             function getViewportH() {
                 var client = docElem['clientHeight'],
@@ -25,12 +24,13 @@ define(['angular', 'services', 'classie'], function(angular, services, classie) 
                     return client;
             }
 
-            function scrollY() {
+            function scrollY(){
                 return $window.pageYOffset || docElem.scrollTop;
             }
 
             // http://stackoverflow.com/a/5598797/989439
             function getOffset( el ) {
+
                 var offsetTop = 0, offsetLeft = 0;
                 do {
                     if ( !isNaN( el.offsetTop ) ) {
@@ -40,7 +40,6 @@ define(['angular', 'services', 'classie'], function(angular, services, classie) 
                         offsetLeft += el.offsetLeft;
                     }
                 } while( el = el.offsetParent )
-
                 return {
                     top : offsetTop,
                     left : offsetLeft
@@ -48,15 +47,15 @@ define(['angular', 'services', 'classie'], function(angular, services, classie) 
             }
 
             function inViewport( el, h ) {
-                var elH = el.offsetHeight,
-                    scrolled = scrollY(),
-                    viewed = scrolled + getViewportH(),
-                    elTop = getOffset(el).top,
-                    elBottom = elTop + elH,
+                var elH = el.offsetHeight;
+                var scrolled = scrollY();
+                var viewed = scrolled + getViewportH();
+                var elTop = getOffset(el).top;
+                var elBottom = elTop + elH;
                 // if 0, the element is considered in the viewport as soon as it enters.
                 // if 1, the element is considered in the viewport only when it's fully inside
                 // value in percentage (1 >= h >= 0)
-                    h = h || 0;
+                h = h || 0;
 
                 return (elTop + elH * h) <= viewed && (elBottom) >= scrolled;
             }
@@ -141,47 +140,22 @@ define(['angular', 'services', 'classie'], function(angular, services, classie) 
         }])
         .directive('stickyAside', ['$window', function($window) {
 
-            var config = $.extend({
-                headerSelector: 'header',
-                navSelector: 'nav',
-                contentSelector: '#content',
-                footerSelector: 'footer',
-                sidebarTopMargin: 20,
-                footerThreshold: 40
-            });
-
             var stickSidebar = function () {
 
                 var sidebarSelector = $(this);
                 var viewportHeight = $(window).height();
-                var viewportWidth = $(window).width();
-                var documentHeight = $(document).height();
-                var headerHeight = $(config.headerSelector).outerHeight();
-                var navHeight = $(config.navSelector).outerHeight();
                 var sidebarHeight = sidebarSelector.outerHeight();
-                var contentHeight = $(config.contentSelector).outerHeight();
-                var footerHeight = $(config.footerSelector).outerHeight();
+                var contentHeight = $('.snap-content').outerHeight();
                 var scroll_top = $(window).scrollTop();
-                var fixPosition = contentHeight - sidebarHeight;
-                var breakingPoint1 = headerHeight + navHeight;
-                var breakingPoint2 = documentHeight - (sidebarHeight + footerHeight + config.footerThreshold);
+                var breakingPoint = 3.5;
 
-                // calculate
                 if ((contentHeight > sidebarHeight) && (viewportHeight > sidebarHeight)) {
-                    console.log("SidebarH is less than #contentH and windowH");
-                    if (scroll_top < breakingPoint1) {
 
-                        sidebarSelector.removeClass('sticky');
+                    if (scroll_top <= breakingPoint) {
+                        sidebarSelector.css('top', breakingPoint+"em");
 
-                    } else if ((scroll_top >= breakingPoint1) && (scroll_top < breakingPoint2)) {
-
-                        sidebarSelector.addClass('sticky').css('top', config.sidebarTopMargin);
-
-                    } else {
-
-                        var negative = breakingPoint2 - scroll_top;
-                        sidebarSelector.addClass('sticky').css('top', negative);
-
+                    }else{
+                        sidebarSelector.css('top', scroll_top);
                     }
 
                 }

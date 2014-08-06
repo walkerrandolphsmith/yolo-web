@@ -1,5 +1,5 @@
 body {
-  background: @darker-grey url(@url);
+ // background: @darker-grey url(@url);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -10,6 +10,7 @@ body {
 }
 
 .container {
+  padding-top: 1.5em;
   padding-right: 0;
   padding-left: 0;
 }
@@ -34,30 +35,12 @@ body {
   text-transform: uppercase;
 }
 
-.appHost {
+.snap-content {
+  z-index: 55;
   background: #fff url(@url);
-  padding-left: 0 !important;
-  padding-right: 0 !important;
   box-shadow: 0 0 8px black;
-  width: 100%;
-  min-height: 100vh;
-  height: auto;
   transition: all 1.0s ease;
 }
-
-
-nav {
-  text-align: center;
-  list-style: none;
-  font-size: 36pt;
-
-  div {
-    display: inline;
-  }
-}
-
-
-/*
 
 nav {
   font-size: @sz-header-2-font;
@@ -74,13 +57,23 @@ nav {
 
   }
   a:hover {
+    text-decoration: none;
+    font-weight: 2em;
+    color: @color;
     border-right: .07em solid @color;
   }
+  .instruction-links {
+    text-indent: 1em;
+  }
+  .instructionType {
+    display: block;
+    float: none !important;
+    margin: 0 !important;
+    padding: .5em;
+    padding-left: 1em;
+    border-bottom: 0.07em solid rgba(0, 0, 0, 0.1);
+  }
 }
-*/
-
-
-
 
 
 .btn-primary {
@@ -91,15 +84,14 @@ nav {
   background-color: @darker-color !important;
 }
 
-.dropdown-menu {
-  cursor: pointer;
-}
-
 .hero
 {
   h1 {
     font-family: "Oswald";
     font-size: 22vw;
+    padding: 0;
+    margin: 0;
+    margin-top: -.1em;
     text-align: center;
     text-transform: uppercase;
     pointer-events: none;
@@ -263,15 +255,4 @@ ol#facts > li:before {
 
   content: counter(li-counter);
   counter-increment: li-counter;
-}
-
-.scrollable{
-  overflow: auto;
-  -webkit-transition-property: top, bottom;
-  transition-property: top, bottom;
-  -webkit-transition-duration: .2s, .2s;
-  transition-duration: .2s, .2s;
-  -webkit-transition-timing-function: linear, linear;
-  transition-timing-function: linear, linear;
-  -webkit-overflow-scrolling: touch;
 }

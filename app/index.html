@@ -8,22 +8,35 @@
 </head>
 
 <body>
-    <div class="appHost container">
-
-        <!--<snap-drawer>-->
+        <snap-drawer>
         <div class="row">
             <nav>
-                <a href="#/home" class="btn btn-primary"><i class="fa fa-home"></i>Home</a>
-                <a href="#/instructions" class="btn btn-primary"><i class="fa fa-book"></i>Docs</a>
-                <!--
-                <a href="#install" ng-click="do($event)">Installation</a>
-                <a href="#signup" ng-click="do($event)">Sign Up</a>
-                <a href="#signin" ng-click="do($event)">Sign In</a>
-                <a href="#add-child" ng-click="do($event)">Add Child</a>
-                <a href="#manage-child" ng-click="do($event)">Mange Child</a>
-                <a href="#settings" ng-click="do($event)">Settings</a>
-                -->
-                <a href="#/parents" class="btn btn-primary" ng-hide="sessionUser"><i class="fa fa-user"></i>Parents</a>
+                <a href="#/home"><i class="fa fa-home"></i> Home</a>
+                <a href="#/instructions"><i class="fa fa-book"></i> Docs</a>
+                <div ng-show="isDocs()">
+                    <a href="#install" class="instruction-links" ng-click="do($event)">Installation</a>
+                    <a href="#signup" class="instruction-links" ng-click="do($event)">Sign Up</a>
+                    <a href="#signin" class="instruction-links" ng-click="do($event)">Sign In</a>
+                    <a href="#add-child" class="instruction-links" ng-click="do($event)">Add Child</a>
+                    <a href="#manage-child" class="instruction-links" ng-click="do($event)">Mange Child</a>
+                    <a href="#settings" class="instruction-links" ng-click="do($event)">Settings</a>
+                    <div class="onoffswitch-wrapper instructionType">
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="android-web" ng-checked="isApp" ng-click="setInstructionType($event)">
+                            <label class="onoffswitch-label" for="android-web">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <a href="#/parents" ng-hide="sessionUser"><i class="fa fa-user"></i>Parents</a>
+                <div ng-show="sessionUser">
+                    <a href="#/parents"><i class="fa fa-user fa-fw"></i> {{ sessionUser.username() }}</a>
+                    <a ng-click="open()"><i class="fa fa-cog fa-spin"></i> Settings</a>
+                    <a ng-click="logOut()"><i class="fa fa-sign-out"></i> Sign Out</a>
+                </div>
+
 
                 <div ng-controller="SettingsController">
                     <script type="text/ng-template" id="add_modal.html">
@@ -84,35 +97,18 @@
                             <button class="btn btn-default" ng-click="cancel()">Close</button>
                         </div>
                     </script>
-
-                    <div ng-show="sessionUser">
-                        <div class="btn-group" dropdown is-open="status.isopen">
-                            <a href="#/parents" class="btn btn-primary"><i class="fa fa-user fa-fw"></i> {{ sessionUser.username() }}</a>
-                            <a class="btn btn-primary dropdown-toggle" ng-disabled="disabled">
-                                <span class="fa fa-caret-down"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a ng-click="open()"><i class="fa fa-cog fa-spin"></i> Settings</a></li>
-                                <li class="divider"></li>
-                                <li><a ng-click="logOut()"><i class="fa fa-sign-out"></i> Sign Out</a></li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
 
             </nav>
         </div>
-        <!--</snap-drawer>-->
+        </snap-drawer>
 
-        <!--<snap-content snap-options="snapOpts" class="appHost">-->
-            <!--<i class="fa fa-bars" snap-toggle></i>-->
+        <snap-content snap-options="snapOpts" class="appHost">
+            <i class="fa fa-bars" snap-toggle></i>
             <div class="container">
                  <div ng-view class="row"></div>
             </div>
-        <!--</snap-content>-->
-
-    </div>
-
-
+        </snap-content>
 
     <script src="scripts/_libs/requirejs/require.js" data-main="scripts/main"></script>
 </body>

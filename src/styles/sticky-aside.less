@@ -4,8 +4,11 @@ main {
 }
 
 #sidebar {
+  position: fixed;
+  top: 3.5em;
   float: left;
   max-width: 220px;
+  //transition: all .5s;
 
   .instructions-headers {
     background-color: transparent;
@@ -27,18 +30,6 @@ main {
       a:hover {
         border-right: .07em solid @color;
       }
-    }
-  }
-
-  .onoffswitch-wrapper {
-    margin: 1em 20%;
-    float: none;
-
-    .onoffswitch-inner:before {
-      content: "App";
-    }
-    .onoffswitch-inner:after {
-      content: "Web";
     }
   }
 }
