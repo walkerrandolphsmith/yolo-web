@@ -7,6 +7,18 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+body.snapjs-left {
+  #sidebar {
+    visibility: hidden !important;
+    transition: visibility .01s ease-in-out;
+
+  }
+  #content {
+    max-width: 100% !important;
+  }
+}
+
+
 .row {
    padding: 0;
    margin-right: 0;

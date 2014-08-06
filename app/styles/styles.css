@@ -1113,18 +1113,18 @@ main {
   font-family: 'Dosis';
   font-size: 2em;
 }
-.snapjs-left #sidebar {
-  visibility: hidden !important;
-  transition: visibility 0.01s ease-in-out;
-}
-.snapjs-left #content {
-  max-width: 100% !important;
-}
 html {
   overflow-x: hidden;
 }
 body {
   -webkit-font-smoothing: antialiased;
+}
+body.snapjs-left #sidebar {
+  visibility: hidden !important;
+  transition: visibility 0.01s ease-in-out;
+}
+body.snapjs-left #content {
+  max-width: 100% !important;
 }
 .row {
   padding: 0;
@@ -1373,6 +1373,9 @@ ol#facts > li:before {
     height: 50px;
     padding: 0;
     margin: 0;
+  }
+  .hi-icon:before {
+    line-height: 50px !important;
   }
   .hi-icon:after {
     line-height: 50px !important;
