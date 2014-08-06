@@ -1,5 +1,4 @@
 main {
-  margin: 20px auto;
   max-width: 940px;
 }
 
@@ -42,7 +41,7 @@ main {
   left: auto;
 }
 
-.instructions {
+#content {
 
   float: right;
   max-width: 700px;
@@ -62,5 +61,16 @@ main {
   p, ol {
     font-family: 'Dosis';
     font-size: @sz-p-font;
+  }
+}
+
+.snapjs-left {
+  #sidebar {
+    visibility: hidden !important;
+    transition: visibility .01s ease-in-out;
+
+  }
+  #content {
+    max-width: 100% !important;
   }
 }

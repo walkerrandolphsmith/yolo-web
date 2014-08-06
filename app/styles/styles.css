@@ -97,11 +97,8 @@ snap-drawer,
   width: 100%;
 }
 .scrollable {
-  overflow: auto;
   -webkit-transition-property: top, bottom;
   transition-property: top, bottom;
-  -webkit-transition-duration: .2s, .2s;
-  transition-duration: .2s, .2s;
   -webkit-transition-timing-function: linear, linear;
   transition-timing-function: linear, linear;
   -webkit-overflow-scrolling: touch;
@@ -857,12 +854,11 @@ input[type='range']::-moz-range-track {
   z-index: 5 !important;
   margin-top: 3em;
   overflow: hidden;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
 }
 .cbp-so-section {
   margin-bottom: none;
-}
-.cbp-so-section:last-child {
-  margin-bottom: 8em;
 }
 /* Clear floats of children */
 .cbp-so-section:before,
@@ -948,9 +944,6 @@ input[type='range']::-moz-range-track {
       Footer
 
 **************************************************************/
-footer {
-  border-top: 1px solid #ccc;
-}
 .hi-icon-wrap {
   text-align: center;
   margin: 0 auto;
@@ -1066,7 +1059,6 @@ footer {
   }
 }
 main {
-  margin: 20px auto;
   max-width: 940px;
 }
 #sidebar {
@@ -1102,24 +1094,31 @@ main {
   z-index: 6;
   left: auto;
 }
-.instructions {
+#content {
   float: right;
   max-width: 700px;
 }
-.instructions h1,
-.instructions h2 {
+#content h1,
+#content h2 {
   font-family: "Oswald";
 }
-.instructions h1 {
+#content h1 {
   font-size: 4em;
 }
-.instructions h2 {
+#content h2 {
   font-size: 2em;
 }
-.instructions p,
-.instructions ol {
+#content p,
+#content ol {
   font-family: 'Dosis';
   font-size: 2em;
+}
+.snapjs-left #sidebar {
+  visibility: hidden !important;
+  transition: visibility 0.01s ease-in-out;
+}
+.snapjs-left #content {
+  max-width: 100% !important;
 }
 body {
   -webkit-font-smoothing: antialiased;
@@ -1303,9 +1302,6 @@ nav .instructionType {
       Slider Section
 
 **************************************************************/
-.services {
-  border-top: 1px solid #ccc;
-}
 svg {
   heigth: 100%;
   width: 100%;
@@ -1368,10 +1364,15 @@ ol#facts > li:before {
     width: 50%;
     height: 50%;
   }
-  #infographic {
-    visibility: none;
-    height: 0;
-    width: 0;
+  .hi-icon {
+    line-height: 50px;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    margin: 0;
+  }
+  .hi-icon:after {
+    line-height: 50px !important;
   }
 }
 /*
