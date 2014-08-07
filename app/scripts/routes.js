@@ -94,13 +94,10 @@ define(['angular', 'app'], function(angular, app) {
             };
 
             angular.element(document).ready(function(){
-                console.log('on ready');
                 $timeout(function() {
-                    $('nav').removeClass('hidden');
-                    $('nav').addClass('visible');
+                    document.querySelector('nav').style.opacity = 1;
                     console.log('update with timeout fired');
                 }, 1500);
-
             });
         })
 });

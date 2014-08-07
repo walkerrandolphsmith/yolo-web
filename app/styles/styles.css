@@ -1159,6 +1159,8 @@ body.snapjs-left #content {
   transition: all 1.0s ease;
 }
 nav {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
   font-size: 2.5em;
 }
 nav a {

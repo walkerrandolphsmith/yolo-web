@@ -59,7 +59,11 @@ body.snapjs-left {
 }
 
 nav {
+  //Init to none and change on doumentReady + setTimeout to block
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
   font-size: @sz-header-2-font;
+
   a {
     text-align: left;
     text-decoration: none;
