@@ -17,7 +17,7 @@ define(['angular', 'app'], function(angular, app) {
         });
         $routeProvider.otherwise({redirectTo: '/home'});
     }])
-        .run(function($rootScope, $location, $anchorScroll, $modal, YoloUser){
+        .run(function($rootScope, $location, $anchorScroll, $timeout, $modal, YoloUser){
             Parse.initialize("yG0OKddCMctN5vtCj5ocUbDxrRJjlPuzZLXMOXA9", "MgdbUbWiTaPbuZOp2N4rMsON7av9ITWvzSC0qiuV");
             $rootScope.sessionUser = Parse.User.current();
 
@@ -27,7 +27,6 @@ define(['angular', 'app'], function(angular, app) {
             $rootScope.isApp = true;
             $rootScope.data = {};
             $rootScope.data.numberSelection = ($rootScope.sessionUser != null ? $rootScope.sessionUser.frequency() : 0);
-
 
             $rootScope.snapOpts = {
                 disable: 'right'
@@ -93,5 +92,15 @@ define(['angular', 'app'], function(angular, app) {
                 });
 
             };
+
+            angular.element(document).ready(function(){
+                console.log('on ready');
+                $timeout(function() {
+                    $('nav').removeClass('hidden');
+                    $('nav').addClass('visible');
+                    console.log('update with timeout fired');
+                }, 1500);
+
+            });
         })
 });
