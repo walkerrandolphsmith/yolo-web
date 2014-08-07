@@ -95,9 +95,9 @@ define(['angular', 'app'], function(angular, app) {
 
             angular.element(document).ready(function(){
                 $timeout(function() {
-                    document.querySelector('nav').style.opacity = 1;
+                    $('nav').each(function(){$(this).css('opacity', 1)});
                     console.log('update with timeout fired');
-                }, 1500);
+                }, 850);
             });
         })
 });
