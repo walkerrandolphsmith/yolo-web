@@ -1,4 +1,4 @@
 {
-    "directory": "app/scripts/_libs",
+    "directory": "app/scripts/bower",
     "json": "bower.json"
 }
