@@ -1,17 +1,17 @@
 require.config({
     paths : {
-        'angular' : '_libs/angular/angular',
-        angularRoute: '_libs/angular-route/angular-route',
-        angularMocks: '_libs/angular-mocks/angular-mocks',
-        text: '_libs/requirejs-text/text',
-        ui: '_libs/angular-bootstrap/ui-bootstrap',
-        tpls: '_libs/angular-bootstrap/ui-bootstrap-tpls.min',
-        jQuery: '_libs/jquery/jquery',
-        classie: '_libs/classie/classie',
-        snapjs: "_libs/snapjs/snap",
-        angularSnap: '_libs/angular-snap/angular-snap',
-        modernizr: '_libs/modernizr/modernizr',
-        parse: '_libs/parse'
+        'angular' : 'bower/angular/angular',
+        angularRoute: 'bower/angular-route/angular-route',
+        angularMocks: 'bower/angular-mocks/angular-mocks',
+        text: 'bower/requirejs-text/text',
+        ui: 'bower/angular-bootstrap/ui-bootstrap',
+        tpls: 'bower/angular-bootstrap/ui-bootstrap-tpls.min',
+        jQuery: 'bower/jquery/jquery',
+        classie: 'bower/classie/classie',
+        snapjs: "bower/snapjs/snap",
+        angularSnap: 'bower/angular-snap/angular-snap',
+        modernizr: 'bower/modernizr/modernizr',
+        parse: 'bower/parse'
     },
     shim: {
         'angular' : {'exports' : 'angular'},
