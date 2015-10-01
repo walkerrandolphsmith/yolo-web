@@ -15,7 +15,7 @@ module.exports = {
 		new webpack.optimize.DedupePlugin(),
 		new BowerWebpackPlugin(),
 		new HtmlWebpackPlugin({
-			title: 'hush-web',
+			title: 'yolo-web',
 			template: path.join(__dirname, './web/index.html')
 		}),
 		new ExtractTextPlugin('styles.css')
@@ -70,7 +70,7 @@ module.exports = {
 		},
 		{
 			test: /\.apk$/,
-			loader: "file-loader?name=hush.apk"
+			loader: "file-loader?name=yolo.apk"
 		}
 		]
 	}

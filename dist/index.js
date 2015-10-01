@@ -1062,7 +1062,7 @@
 /* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval("module.exports = __webpack_require__.p + \"hush.apk\"\n\n/*****************\n ** WEBPACK FOOTER\n ** ./src/app/styles/assets/yolo.apk\n ** module id = 193\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./src/app/styles/assets/yolo.apk?");
+	eval("module.exports = __webpack_require__.p + \"yolo.apk\"\n\n/*****************\n ** WEBPACK FOOTER\n ** ./src/app/styles/assets/yolo.apk\n ** module id = 193\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./src/app/styles/assets/yolo.apk?");
 
 /***/ },
 /* 194 */
