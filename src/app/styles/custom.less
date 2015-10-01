@@ -1,0 +1,162 @@
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+.row {
+   padding: 0;
+   margin-right: 0;
+   margin-left: 0;
+}
+
+.container {
+  padding-top: 1.5em;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.center {
+  text-align: center;
+  div {
+    display: inline-block;
+  }
+}
+
+.strike {
+  color:red;
+  text-decoration: line-through;
+}
+
+.path-one {fill: none;}
+.path-two {fill:#334D5C;}
+.path-three {opacity:0.3;fill:#5D5D5D;}
+.path-four {fill:#E27C3E;}
+.path-five {fill:#FFFFFF;}
+.path-six {opacity:0.3;fill:#5D5D5D;}
+
+.devices{
+  position: relative; padding: 0;
+
+  .iphone {
+    width: 28%; position: absolute; bottom: 5%; left: 10%; display: block; z-index: -1
+  }
+  .macbook{
+    height: 90%; width: 80%; position: relative; bottom: -50px;
+  }
+  .ipad {
+    position: absolute; width: 30%; left: 60%; bottom: 12%; z-index: -1;
+  }
+}
+
+.hero
+{
+  h1 {
+    font-family: "Oswald";
+    font-size: 12em;
+    padding: 0;
+    margin: 0;
+    margin-top: -.1em;
+    text-align: center;
+    text-transform: uppercase;
+    pointer-events: none;
+    abbr {
+      border-bottom: none;
+    }
+  }
+}
+
+.headers {
+  text-align: center;
+
+  i {
+   font-size: 15em;
+   margin-bottom: 0.25em
+  }
+
+  h1 {
+    font-family: "Oswald";
+    font-size: 4em;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: -20px;
+  }
+
+  p {
+    font-family: 'Dosis';
+    font-size: 2em;
+    text-align: center;
+  }
+}
+
+.headers path {
+  pointer-events: none;
+}
+
+.headers path:first-child {
+  pointer-events: bounding-box !important;
+}
+
+svg {
+  heigth : 100%;
+  width: 100%;
+}
+
+ol#facts {
+  display: inline-block;
+  text-align: left;
+
+  list-style-type: none;
+
+  margin: 0;
+  margin-left: 3em;
+  margin-top: -3em;
+  margin-bottom: 3em;
+  padding: 0;
+
+  counter-reset: li-counter;
+}
+ol#facts > li{
+  position: relative;
+  margin-bottom: 20px;
+  padding-left: 0.5em;
+  min-height: 3em;
+  border-left: 2px solid #CCCCCC;
+}
+ol#facts > li:before {
+  position: absolute;
+  top: 0;
+  left: -1em;
+  width: 0.8em;
+
+  font-size: 3em;
+  line-height: 1;
+  font-weight: bold;
+  text-align: right;
+  color: #464646;
+
+  content: counter(li-counter);
+  counter-increment: li-counter;
+}
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px){
+  .headers div { margin-bottom: 10em !important; }
+  h2, h3 {
+    font-size: 6em !important;
+  }
+  p { font-size: 4em !important; }
+
+  ol p {
+    font-size: 2em !important;
+  }
+
+
+}

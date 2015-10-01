@@ -1,4 +1,10 @@
-.DS_Store
 .idea
+.DS_Store
 
 node_modules
+web_modules
+packages
+
+
+
+npm-debug.log

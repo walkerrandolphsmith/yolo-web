@@ -1,4 +1,10 @@
 {
-    "directory": "app/scripts/bower",
-    "json": "bower.json"
+	"directory": "web_modules",
+	"analytics": false,
+	"timeout": 120000,
+	"registry": {
+		"search": [
+			"https://bower.herokuapp.com"
+		]
+	}
 }
